@@ -1,0 +1,67 @@
+<header>
+  <h1>Recipes</h1>
+<search>
+  <form>
+    <label for="search-input">Search recipes</label>
+    <div class="search-container">
+      <input
+        id="search-input"
+        type="search"
+        role="combobox"
+        aria-autocomplete="both"
+        aria-controls="autocomplete-list"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-describedby="instructions"
+        autocomplete="off"
+        placeholder="Search recipes or topics"
+      />
+      <button id="confirm-search" class="confirm-search" aria-label="Search">
+        Search
+      </button>
+    </div>
+  </form>
+  <div class="autocomplete-container">
+    <ul
+      id="autocomplete-list"
+      role="listbox"
+      class="autocomplete-list hidden"
+    ></ul>
+  </div>
+  <div id="instructions" class="sr-only">
+    When autocomplete results are available use up and down arrows to review and
+    enter to select. Touch device users, explore by touch or with swipe
+    gestures.
+  </div>
+  <div
+    aria-live="polite"
+    id="search-status"
+    class="search-status sr-only"
+  ></div>
+</search>
+  <span class="sr-only" id="query-desc">, suggestion, link</span>
+  <span class="sr-only" id="topic-desc">, topic page, link</span>
+  <span class="sr-only" id="recipe-desc">, recipe page, link</span>
+</header>
+<main>
+   <aside>
+    <h2>(WIP!) Hey...</h2>
+      <p>This is intended for testing screen reader, keyboard, and switch input functionality.
+Please note: This is not a production-ready template.</p>
+   <h2>Instructions</h2>
+  <p>This example shows an <strong>autocomplete list with links</strong>, tested with:</p>
+  <ul>
+    <li><b>TODO:</b> NVDA </li>
+    <li><b>TODO:</b> TalkBack</li>
+    <li><b>TODO:</b> VoiceOver</li>
+  </ul>
+
+  <h3>Key Implementation Notes</h3>
+ 
+  <ul>
+    <li>Suggestions don't use a native  <code>&lt;a&gt;</code> as it's link since  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/option_role#all_descendants_are_presentational">elements inside <code>role="option"</code> loose their semantic value</a>. Also, list boxes aren't meant to display links. This workaround adds a click event to each link with javascript.</li>
+    <li>Each option has it's function described by via the <code>aria-describedby</code> attribute. This could be considered bad practice as it's repetitive and it also doesn't utilizes screen readers build in abillity to identifiy links.</li>
+    <li>The idea is that the user should be redirected to a search page with the selected query once a suggestion is clicked. Topics and recepies takes the user directly to the page.</li> 
+  </ul>
+  <aside>
+ </main>

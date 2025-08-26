@@ -1,0 +1,100 @@
+<header>
+  <h1>Travel finder</h1>
+  <search>
+    <form>
+      <label for="search-input">Popular destinations</label>
+      <div class="search-container">
+        <input
+          aria-describedby="instructions"
+          aria-expanded="false"
+          aria-controls="autocomplete-list"
+          aria-autocomplete="list"
+          autocomplete="off"
+          name="input-autocomplete"
+            placeholder="Find your next journey"
+          type="text"
+          role="combobox"
+          id="search-input"
+        />
+        <button id="confirm-search" class="confirm-search" aria-label="Search">
+          Search
+        </button>
+      </div>
+    </form>
+    <div id="autocomplete-container" class="autocomplete-container">
+      <div
+        id="autocomplete-list"
+        class="autocomplete-list hidden"
+        role="listbox"
+      ></div>
+    </div>
+    <div id="instructions" class="sr-only">
+      When autocomplete results are available use up and down arrows to review
+      and enter to select. Touch device users, explore by touch or with swipe
+      gestures.
+    </div>
+    <div
+      aria-live="polite"
+      id="search-status"
+      class="search-status sr-only"
+    ></div>
+  </search>
+</header>
+<main>
+  <aside>
+    <h2>Hey...</h2>
+      <p>This is intended for testing screen reader, keyboard, and switch input functionality.
+Please note: This is not a production-ready template.</p>
+   <h2>Instructions</h2>
+  <p>This example shows an <strong>autocomplete list with grouped suggestions</strong>, tested with:</p>
+  <ul>
+    <li>NVDA</li>
+    <li>TalkBack</li>
+    <li>VoiceOver</li>
+  </ul>
+
+  <h3>Features</h3>
+  <ul>
+    <li>Navigation instructions are announced to screen readers.</li>
+    <li>Suggestion updates are announced using a live region.</li>
+    <li>NVDA announces group names as users move between them:</li>
+  </ul>
+
+  <pre aria-label="Screen reader example output">
+3 options available. Use up and down arrows to review and ENTER to select.
+expanded
+list
+Countries grouping
+Spain 1 of 1
+Cities grouping
+Stockholm 1 of 2
+Sydney 2 of 2
+  </pre>
+
+  <h3>Key Implementation Notes</h3>
+  <p>Creating accessible groupings was a bit tricky tbh. 
+    The example is based on the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/" target="_blank" rel="noopener">WAI-ARIA Grouped Listbox pattern</a>, with a few changes. <br/>
+    Here's what worked:</p>
+  <ul>
+    <li>Use a separate <code>&lt;ul&gt;</code> for each group with <code>role="group"</code>.</li>
+    <li>
+      <strong>Focus handling:</strong>
+      <ul>
+        <li>NVDA announces groups only if focus is:
+          <ul>
+            <li>on the element with <code>role="listbox"</code> (per APG), or</li>
+            <li>the <code>input</code> uses <code>aria-activedescendant</code> instead of the listbox (our approach).</li>
+          </ul>
+        </li>
+        <li>We chose the input-based approach to let users keep typing.</li>
+      </ul>
+    </li>
+    <li>Group heading <code>&lt;li&gt;</code> elements must have <code>aria-hidden="true"</code> for NVDA to announce the group names.</li>
+    <li>
+      We avoided using <code>aria-owns</code>, as it causes VoiceOver to repeat the input’s
+      <code>aria-describedby</code> instructions for every focused option. Use <code>aria-controls</code> instead.
+    </li>
+    <li>Group announcements aren’t supported on touch devices (iOS, Android), but overall accessibility is good.</li>
+  </ul>
+  <aside>
+</main>

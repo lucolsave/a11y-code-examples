@@ -1,0 +1,76 @@
+<header>
+  <h1>World's cutest animal index</h1>
+  <search>
+    <button
+      id="open-modal"
+      class="search-trigger"
+      aria-controls="search-modal"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-label="Search"
+    >
+      Looking for something cute?
+    </button>
+
+    <dialog id="search-modal" class="modal" aria-label="Global search">
+      <form role="dialog">
+        <label for="search-input" class="sr-only">Search</label>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Looking for something cute?"
+          autocomplete="off"
+          aria-controls="results"
+        />
+        <button id="confirm-search" class="confirm-search" aria-label="Search">
+          Search
+        </button>
+        <button
+          id="close-modal"
+          aria-label="Close search dialog"
+          class="close-button"
+        >
+          &times;
+        </button>
+      </form>
+
+      <div aria-live="polite" id="live-region" class="sr-only"></div>
+      <div id="results"></div>
+    </dialog>
+  </search>
+</header>
+<main>
+  <aside>
+     <h2>Hey...</h2>
+      <p>This is intended for testing screen reader, keyboard, and switch input functionality.
+Please note: This is not a production-ready template.</p>
+     <h2>Instructions</h2>
+
+  <p>
+    This example shows a <strong>quick search modal</strong>, tested with:
+  </p>
+
+  <ul>
+    <li>NVDA</li>
+    <li>TalkBack</li>
+    <li>VoiceOver <strong>(TODO: VoiceOver says “collapsed” when the dialog opens)</strong></li>
+  </ul>
+
+  <h3>Key Implementation Notes</h3>
+
+  <h4>Search Input</h4>
+These attributes are recommended for the input field inside the dialog:
+  <ul>
+    <li>
+      The <code>input</code> element should use <code>type="search"</code>.
+    </li>
+    <li>
+      <code>aria-controls</code>: Should reference the ID of the element containing search suggestions.
+      (Note: This element should always exist in the DOM, even if it is hidden initially.)
+    </li>
+    <li>
+      <code>autocomplete="off"</code>: Turns off automated assistance in filling out form field values.
+    </li>
+  </ul>
+  </aside>
+</main>

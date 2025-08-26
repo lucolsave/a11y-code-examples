@@ -1,0 +1,179 @@
+<header>
+  <h1>Travel finder</h1>
+  <search>
+    <form>
+      <label for="search-input">Popular destinations</label>
+      <div class="search-container">
+        <input
+          id="search-input"
+          type="search"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-controls="autocomplete-list"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-describedby="instructions"
+          autocomplete="off"
+          placeholder="Find your next journey"
+        />
+        <button id="confirm-search" class="confirm-search" aria-label="Search">
+          Search
+        </button>
+      </div>
+    </form>
+    <div class="autocomplete-container">
+      <ul
+        id="autocomplete-list"
+        role="listbox"
+        class="autocomplete-list hidden"
+      ></ul>
+    </div>
+    <div id="instructions" class="sr-only">
+      When autocomplete results are available use up and down arrows to review
+      and enter to select. Touch device users, explore by touch or with swipe
+      gestures.
+    </div>
+    <div
+      aria-live="polite"
+      id="search-status"
+      class="search-status sr-only"
+    ></div>
+  </search>
+</header>
+<main>
+  <aside>
+    <h2>Hey...</h2>
+    <p>
+      This is intended for testing screen reader, keyboard, and switch input
+      functionality. Please note: This is not a production-ready template.
+    </p>
+    <h2>Instructions</h2>
+    <h3>Search Input</h3>
+
+    <p>
+      The search form should be wrapped within the
+      <code>&lt;search&gt;</code> element or use the
+      <code>role="search"</code> attribute. The
+      <code>&lt;input&gt;</code> element should use <code>type="search"</code>.
+      In addition to this, a couple of extra attributes should be considered:
+    </p>
+
+    <ul>
+      <li>
+        <code>role="combobox"</code>: Combines an input field with a popup
+        providing possible values for that input field.
+      </li>
+      <li>
+        <code>aria-activedescendant</code>: An ID pointing to the currently
+        active suggestion (if the user has an active selection).
+      </li>
+      <li>
+        <code>aria-autocomplete="list"</code>: Indicates that inputting text
+        could trigger predictions or suggestions. If the suggestion also appears
+        after the caret in the input, use <code>aria-autocomplete="both"</code>.
+      </li>
+      <li>
+        <code>aria-expanded</code>: Set to <code>true</code> or
+        <code>false</code> depending on whether the suggestion popover is
+        visible.
+      </li>
+      <li>
+        <code>aria-controls</code>: An ID pointing to the listbox of search
+        suggestions. (Note: This element should always exist in the DOM, even if
+        it is hidden initially).
+      </li>
+      <li>
+        <code>autocomplete="off"</code>: Turns off automated assistance in
+        filling out form field values.
+      </li>
+      <li>
+        <code>aria-describedby</code>: Points to an element with visually hidden
+        instructions for screen reader users.
+      </li>
+    </ul>
+
+    <p><strong>Example aria-describedby text:</strong></p>
+    <blockquote>
+      When autocomplete results are available use up and down arrows to review
+      and enter to select. Touch device users, explore by touch or with swipe
+      gestures.
+    </blockquote>
+
+    <p>
+      Also note that all form elements should have a <code>&lt;label&gt;</code>.
+    </p>
+
+    <h3>Suggestions</h3>
+
+    <p>
+      Suggestions can be displayed using <code>&lt;ul&gt;</code> and
+      <code>&lt;li&gt;</code> elements, with the following attributes:
+    </p>
+
+    <h4>The <code>&lt;ul&gt;</code> element</h4>
+    <ul>
+      <li>
+        <code>role="listbox"</code>: Indicates a list of selectable options.
+      </li>
+    </ul>
+
+    <h4>The <code>&lt;li&gt;</code> element</h4>
+    <ul>
+      <li>
+        <code>role="option"</code>: Announces the list item as an option to
+        screen readers.
+      </li>
+      <li>
+        <code>aria-selected="true"</code>: Add this if the suggestion is
+        automatically added to the input as the user navigates through the list.
+      </li>
+    </ul>
+
+    <h3>Navigation</h3>
+
+    <ul>
+      <li>
+        <strong>Enter the proposals:</strong> Down arrow (from input to first
+        suggestion)
+      </li>
+      <li>
+        <strong>Navigate between proposals:</strong> Up and down arrows (no Tab)
+      </li>
+      <li>
+        <strong>Exit proposals:</strong> Up arrow (from first item back to
+        input)
+      </li>
+      <li>
+        <strong>Select a proposal:</strong> Use <kbd>Space</kbd> or
+        <kbd>Enter</kbd>
+      </li>
+      <li>
+        <strong>After selection:</strong> Automatically reposition focus back in
+        the input
+      </li>
+      <li>
+        <strong>Esc key:</strong> Closes the listbox and repositions focus in
+        the input
+      </li>
+      <li>
+        <strong>No item selected:</strong> Focus returns to input without
+        clearing value
+      </li>
+      <li>
+        <strong>Left/Right arrows:</strong> Move the caret within the input
+        without closing the listbox
+      </li>
+      <li>
+        <strong>Tab from combobox:</strong> Continues to next focusable element
+      </li>
+      <li>
+        <strong>Tab from listbox:</strong> Continues focus course, input is
+        filled with current suggestion
+      </li>
+      <li>
+        <strong>Shift + Tab from listbox:</strong> Moves focus backward, input
+        is filled with current suggestion
+      </li>
+    </ul>
+  </aside>
+</main>
