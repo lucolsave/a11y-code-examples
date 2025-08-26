@@ -7,21 +7,25 @@
       aria-controls="search-modal"
       aria-haspopup="dialog"
       aria-expanded="false"
-      aria-label="Search"
     >
-      Looking for something cute?
+      <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><path d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"/></svg>
+      <span id="open-button-text">Search cute animals</span>
     </button>
 
     <dialog id="search-modal" class="modal" aria-label="Global search">
-      <form role="dialog">
+      <form>
         <label for="search-input" class="sr-only">Search</label>
+        <div class="search-container">
+          <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><path d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"/></svg>
         <input
           type="search"
           id="search-input"
-          placeholder="Looking for something cute?"
+          placeholder="Search cute animals"
           autocomplete="off"
           aria-controls="results"
         />
+          </div>
         <button id="confirm-search" class="confirm-search" aria-label="Search">
           Search
         </button>
@@ -41,45 +45,38 @@
 </header>
 <main>
   <aside>
-    <h2>Hey...</h2>
-    <p>
-      This is intended for testing screen reader, keyboard, and switch input
-      functionality. Please note: This is not a production-ready template.
-    </p>
-    <h2>Instructions</h2>
+     <h2>Hey...</h2>
+      <p>This is intended for testing screen reader, keyboard, and switch input functionality.
+Please note: This is not a production-ready template.</p>
+     <h2>Instructions</h2>
 
-    <p>
-      This example shows a <strong>quick search modal</strong>, tested with:
-    </p>
+  <p>
+    This example shows a <strong>quick search modal</strong>, tested with:
+  </p>
 
-    <ul>
-      <li>NVDA</li>
-      <li>TalkBack</li>
-      <li>
-        VoiceOver
-        <strong
-          >(TODO: VoiceOver says “collapsed” when the dialog opens)</strong
-        >
-      </li>
-    </ul>
+  <ul>
+    <li>NVDA</li>
+    <li>TalkBack</li>
+    <li>VoiceOver <strong>(TODO: VoiceOver says “collapsed” when the dialog opens)</strong></li>
+  </ul>
 
-    <h3>Key Implementation Notes</h3>
+  <h3>Key Implementation Notes</h3>
 
-    <h4>Search Input</h4>
-    These attributes are recommended for the input field inside the dialog:
-    <ul>
-      <li>
-        The <code>input</code> element should use <code>type="search"</code>.
-      </li>
-      <li>
-        <code>aria-controls</code>: Should reference the ID of the element
-        containing search suggestions. (Note: This element should always exist
-        in the DOM, even if it is hidden initially.)
-      </li>
-      <li>
-        <code>autocomplete="off"</code>: Turns off automated assistance in
-        filling out form field values.
-      </li>
-    </ul>
+  <h4>Search Input</h4>
+These attributes are recommended for the input field inside the dialog:
+  <ul>
+    <li>
+      The <code>input</code> element should use <code>type="search"</code>.
+    </li>
+    <li>
+      <code>aria-controls</code>: Should reference the ID of the element containing search suggestions.
+      (Note: This element should always exist in the DOM, even if it is hidden initially.)
+    </li>
+    <li>
+      <code>autocomplete="off"</code>: Turns off automated assistance in filling out form field values.
+    </li>
+  </ul>
+    <h3>Also note</h3>
+    <p>For this example we didn't to add a tab trap inside dialog, though this is recommended. If you make the dialog a modal (traps navigation), add the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal">aria-modal attribute</a> to your dialog element</a></p>
   </aside>
 </main>
