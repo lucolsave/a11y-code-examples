@@ -184,6 +184,11 @@ const updateLiveRegion = debounce((count: number) => {
   if (isIdentical) text = text + " ";
 
   statusRegion.textContent = text;
+
+  // Clear the content after 2 seconds to make sure the user doesn't access the aria-live region with arrow-key navigation
+  setTimeout(() => {
+    statusRegion.textContent = "";
+  }, 2000);
 }, 500);
 
 document.addEventListener("click", (e) => {
