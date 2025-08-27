@@ -38,11 +38,11 @@ const liveRegion = document.getElementById("live-region") as HTMLDivElement;
 
 // Open dialog
 openBtn.addEventListener("click", () => {
-  openBtn.setAttribute("aria-expanded", "true");
   dialog.showModal();
   searchInput.value = "";
   results.innerHTML = "";
   liveRegion.textContent = "";
+  // Allow the dialog to open before we set focus
   setTimeout(() => searchInput.focus(), 0);
 });
 
@@ -68,10 +68,6 @@ closeBtn.addEventListener("click", (e) => {
   dialog.close();
   openBtn.focus();
   return false;
-});
-
-dialog.addEventListener("close", () => {
-  openBtn.setAttribute("aria-expanded", "false");
 });
 
 dialog.addEventListener("click", (e) => {
@@ -159,7 +155,7 @@ searchInput.addEventListener("input", () => {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = link.url;
-        a.textContent = link.title;
+        a.textContent = link.title.trim();
         a.tabIndex = 0;
         li.appendChild(a);
         ul.appendChild(li);
