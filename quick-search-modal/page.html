@@ -6,7 +6,6 @@
       class="search-trigger"
       aria-controls="search-modal"
       aria-haspopup="dialog"
-      aria-expanded="false"
     >
       <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><path d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"/></svg>
@@ -15,7 +14,8 @@
 
     <dialog id="search-modal" class="modal" aria-label="Global search">
       <form>
-        <label for="search-input" class="sr-only">Search</label>
+        <!-- We need a label as well along with the placeholder because VoiceOver reads the placeholder last -->
+        <label for="search-input" class="sr-only">Search cute animals</label>
         <div class="search-container">
           <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><path d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"/></svg>
         <input
@@ -56,8 +56,8 @@ Please note: This is not a production-ready template.</p>
 
   <ul>
     <li>NVDA</li>
-    <li>TalkBack</li>
-    <li>VoiceOver <strong>(TODO: VoiceOver says “collapsed” when the dialog opens)</strong></li>
+    <li>TalkBack (Android)</li>
+    <li>VoiceOver (iOS)</li>
   </ul>
 
   <h3>Key Implementation Notes</h3>
@@ -74,6 +74,9 @@ These attributes are recommended for the input field inside the dialog:
     </li>
     <li>
       <code>autocomplete="off"</code>: Turns off automated assistance in filling out form field values.
+    </li>
+    <li>
+      I experimented with <code>aria-expanded</code> on the button that opens the dialog. This didn't work well along with the <code>aria-haspopup="dialog"</code> attribute on VoiceOver. TalkBack however doesn't announce that the button opens/expands anything. I think this is a reasonable trade off.
     </li>
   </ul>
     <h3>Also note</h3>
