@@ -40,8 +40,8 @@ const recepies: Suggestion[] = [
     type: "recipe",
   },
   {
-    text: "Ryu's midnight ramen",
-    url: "/recipe/ryus-midnight-ramen",
+    text: "Ryu's miso ramen",
+    url: "/recipe/ryus-miso-ramen",
     type: "recipe",
   },
 ];
@@ -87,10 +87,29 @@ function renderResults(container: HTMLElement, matches: Suggestion[]) {
     li.id = `option-${i}`;
     li.setAttribute("role", "option");
     li.setAttribute("aria-selected", "false");
-    li.setAttribute("aria-describedby", `${recepie.type}-desc`);
+
+    const type =
+      recepie.type === "query"
+        ? "suggestion"
+        : recepie.type === "topic"
+        ? "topic page"
+        : "recipe page";
+
+    li.setAttribute("aria-label", `${recepie.text}, ${type}, link`);
     li.setAttribute("data-link", encodeURI(recepie.url));
 
-    li.innerHTML = `${getIconSVG(recepie.type)} <span>${recepie.text}</span>`;
+    const iconWrapper = document.createElement("span");
+    iconWrapper.innerHTML = getIconSVG(recepie.type);
+    iconWrapper.setAttribute("aria-hidden", "true");
+
+    const textSpan = document.createElement("span");
+    // Hide to make sure TalkBack doesn't announce both the li's aria-label and the span within the option
+    textSpan.setAttribute("aria-hidden", "true");
+
+    textSpan.textContent = recepie.text.trim();
+
+    li.appendChild(iconWrapper);
+    li.appendChild(textSpan);
 
     li.addEventListener("click", (e) => {
       e.preventDefault();

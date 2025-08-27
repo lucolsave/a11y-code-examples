@@ -2,7 +2,6 @@
   <h1>Delicious dishes</h1>
 <search>
   <form>
-    <label for="search-input">Search recipes</label>
     <div class="search-container">
       <svg
           fill="#000000"
@@ -16,21 +15,23 @@
             d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"
           />
         </svg>
-      <input
-        id="search-input"
-        type="search"
-        role="combobox"
-        aria-autocomplete="both"
-        aria-controls="autocomplete-list"
-        aria-haspopup="listbox"
-        aria-expanded="false"
-        aria-describedby="instructions"
-        autocomplete="off"
-        placeholder="Search for recipes or topics"
-      />
-      <button id="confirm-search" class="confirm-search" aria-label="Search">
-        Search
-      </button>
+        <!-- We need a label as well along with the placeholder because VoiceOver reads the placeholder last -->
+        <label for="search-input" class="sr-only">Search for recipes or topics</label>
+        <input
+          id="search-input"
+          type="search"
+          role="combobox"
+          aria-autocomplete="both"
+          aria-controls="autocomplete-list"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-describedby="instructions"
+          autocomplete="off"
+          placeholder="Search for recipes or topics"
+        />
+        <button id="confirm-search" class="confirm-search" aria-label="Search">
+          Search
+        </button>
     </div>
   </form>
   <div class="autocomplete-container">
@@ -46,9 +47,6 @@
     gestures.
   </div>
 </search>
-  <span class="sr-only" id="query-desc">, suggestion, link</span>
-  <span class="sr-only" id="topic-desc">, topic page, link</span>
-  <span class="sr-only" id="recipe-desc">, recipe page, link</span>
 </header>
 <main>
    <aside>
@@ -58,9 +56,9 @@ Please note: This is not a production-ready template.</p>
    <h2>Instructions</h2>
   <p>This example shows an <strong>autocomplete list with links</strong>, tested with:</p>
   <ul>
-    <li><b>TODO:</b> NVDA </li>
-    <li><b>TODO:</b> TalkBack</li>
-    <li><b>TODO:</b> VoiceOver</li>
+    <li>NVDA</li>
+    <li>TalkBack (Android)</li>
+    <li>VoiceOver (iOS)</li>
   </ul>
 
   <h3>Key Implementation Notes</h3>
