@@ -36,12 +36,12 @@ const recepies: Suggestion[] = [
   },
   {
     text: "Luigi's lasagna",
-    url: "/recipe/grandma-lilas-lasagna",
+    url: "/recipe/luigis-lasagna",
     type: "recipe",
   },
   {
     text: "Ryu's midnight ramen",
-    url: "/recipe/marcos-midnight-ramen",
+    url: "/recipe/ryus-midnight-ramen",
     type: "recipe",
   },
 ];
