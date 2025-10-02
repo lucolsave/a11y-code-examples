@@ -10,6 +10,13 @@ search {
   max-width: 30rem;
 }
 
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
 label {
   font-weight: bold;
 }

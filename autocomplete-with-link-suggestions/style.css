@@ -96,6 +96,13 @@ aside {
   gap: 0.25rem;
 }
 
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
 .autocomplete-list li:not(:last-of-type) {
   border-bottom: 1px solid #ccc;
 }

@@ -27,6 +27,7 @@
           aria-haspopup="listbox"
           aria-expanded="false"
           aria-describedby="instructions"
+          aria-owns="autocomplete-list"
           autocomplete="off"
           placeholder="Search popular destinations"
         />
@@ -69,7 +70,17 @@
       </li>
       <li>
         <code>aria-activedescendant</code>: An ID pointing to the currently
-        active suggestion (if the user has an active selection).
+        active suggestion (if the user has an active selection). This also
+        allows the user select an list item without losing focus on the input
+        field.
+      </li>
+      <li>
+        <code>aria-owns</code>: Creates the necessary relations for
+        <code>aria-activedescendant</code> in the accessibility tree (according
+        to W3C's specifications:
+        <a href="https://w3c.github.io/aria/#aria-activedescendant"
+          >w3c aria-activedescendant</a
+        >).
       </li>
       <li>
         <code>aria-autocomplete="list"</code>: Indicates that inputting text
@@ -93,6 +104,11 @@
       <li>
         <code>aria-describedby</code>: Points to an element with visually hidden
         instructions for screen reader users.
+      </li>
+      <li>
+        <code>aria-haspopup</code> is not required becuase the element with the
+        role combobox have an implicit <code>aria-haspopup</code> value of
+        <code>listbox</code>.
       </li>
     </ul>
 

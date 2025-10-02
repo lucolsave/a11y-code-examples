@@ -26,6 +26,7 @@
           aria-haspopup="listbox"
           aria-expanded="false"
           aria-describedby="instructions"
+          aria-owns="autocomplete-list"
           autocomplete="off"
           placeholder="Search for recipes or topics"
         />
@@ -59,7 +60,7 @@ Please note: This is not a production-ready template.</p>
   <h3>Key Implementation Notes</h3>
  
   <ul>
-    <li>Suggestions don't use a native  <code>&lt;a&gt;</code> as it's link since  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/option_role#all_descendants_are_presentational">elements inside <code>role="option"</code> loose their semantic value</a>. Also, list boxes aren't meant to display links. This workaround adds a click event to each link with javascript.</li>
+    <li>Suggestions don't use a native  <code>&lt;a&gt;</code> as it's link since  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/option_role#all_descendants_are_presentational">elements inside <code>role="option"</code> loose their semantic value</a>. Also, list boxes aren't meant to display links. This workaround adds a click event to each link with javascript. <strong>From an accessibility point of view, this is not recommended.</strong> The expectation of an combobox with options is that the item can be selected. Not that it opens a new page altogheter. While we try to warn the user that the option is a link with a description, this could potentaiolly fail <a href="https://www.w3.org/TR/WCAG22/#on-input">On Input</a> if we want to be strict.</li>
     <li>Each option has it's function described by via the <code>aria-describedby</code> attribute. This could be considered bad practice as it's repetitive and it also doesn't utilizes screen readers build in abillity to identifiy links.</li>
     <li>The idea is that the user should be redirected to a search page with the selected query once a suggestion is clicked. Topics and recepies takes the user directly to the page.</li> 
   </ul>
