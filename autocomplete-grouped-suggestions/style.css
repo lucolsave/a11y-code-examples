@@ -93,43 +93,33 @@ aside {
   position: absolute;
 }
 
-.autocomplete-list ul {
-  padding: 0;
-  margin: 0;
-}
-
-.autocomplete-list li {
+.autocomplete-list [role="option"],
+.autocomplete-list [role="separator"] {
   position: relative;
   padding: 0.75rem;
   list-style: none;
 }
 
-.autocomplete-list li[role="separator"] {
+.autocomplete-list [role="separator"] {
   border-bottom: 1px solid #ccc;
-}
-
-.autocomplete-list li:not([role="separator"]) {
-  border-bottom: 1px solid #ccc;
-}
-
-.autocomplete-list li:last-of-type {
-  border-bottom: none;
-}
-
-.autocomplete-list li[role="separator"] {
   font-weight: bold;
 }
 
-.autocomplete-list li[role="option"] {
+.autocomplete-list [role="option"] {
+  border-bottom: 1px solid #ccc;
   padding-left: 1.5rem;
 }
 
-.autocomplete-list li[role="option"]:hover {
+.autocomplete-list [role="option"]:last-of-type {
+  border-bottom: none;
+}
+
+.autocomplete-list [role="option"]:hover {
   background-color: aliceblue;
   cursor: pointer;
 }
 
-.autocomplete-list li.highlighted {
+.autocomplete-list [role="option"].highlighted {
   border-left: 3px solid orange;
   font-weight: bold;
 }

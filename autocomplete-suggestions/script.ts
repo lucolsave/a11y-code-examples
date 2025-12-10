@@ -1,7 +1,5 @@
 const input = document.getElementById("search-input") as HTMLInputElement;
-const listbox = document.getElementById(
-  "autocomplete-list"
-) as HTMLUListElement;
+const listbox = document.getElementById("autocomplete-list") as HTMLDivElement;
 const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
   "confirm-search"
@@ -52,28 +50,28 @@ input.addEventListener("input", () => {
 
 function renderResults(container: HTMLElement, matches: string[]) {
   matches.forEach((country, i) => {
-    const li = document.createElement("li");
-    li.id = `option-${i}`;
-    li.setAttribute("role", "option");
+    const option = document.createElement("div");
+    option.id = `option-${i}`;
+    option.setAttribute("role", "option");
 
-    li.textContent = country;
+    option.textContent = country;
 
-    li.addEventListener("click", () => {
+    option.addEventListener("click", () => {
       input.value = country;
       closeListbox();
       input.focus();
     });
 
-    li.addEventListener("mouseover", (e) => {
-      input.setAttribute("aria-activedescendant", li.id);
+    option.addEventListener("mouseover", (e) => {
+      input.setAttribute("aria-activedescendant", option.id);
     });
 
-    container.appendChild(li);
+    container.appendChild(option);
   });
 }
 
 input.addEventListener("keydown", (e: KeyboardEvent) => {
-  const options = listbox.querySelectorAll<HTMLLIElement>("li");
+  const options = listbox.querySelectorAll<HTMLDivElement>('[role="option"]');
   if (!options.length) return;
 
   switch (e.key) {
@@ -116,7 +114,7 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
   }
 });
 
-function updateActiveOption(options: NodeListOf<HTMLLIElement>) {
+function updateActiveOption(options: NodeListOf<HTMLDivElement>) {
   options.forEach((opt, i) => {
     opt.classList.toggle("highlighted", i === currentIndex);
   });

@@ -1,5 +1,5 @@
 <header>
-  <h1>Travel finder</h1>
+  <h1>Autocomplete suggestions</h1>
   <search>
     <form>
       <div class="search-container">
@@ -17,7 +17,7 @@
           />
         </svg>
         <label id="search-label" for="search-input" class="sr-only"
-          >Search popular destinations</label
+          >Search countries</label
         >
         <input
           id="search-input"
@@ -30,7 +30,7 @@
           aria-describedby="instructions"
           aria-activedescendant=""
           autocomplete="off"
-          placeholder="Search popular destinations"
+          placeholder="Search countries"
         />
         <button id="confirm-search" class="confirm-search" aria-label="Search">
           Search
@@ -38,22 +38,18 @@
       </div>
     </form>
     <div class="autocomplete-container">
-      <ul
+      <div
         id="autocomplete-list"
         role="listbox"
         class="autocomplete-list hidden"
         aria-labelledby="search-label"
         tabindex="0"
-      ></ul>
+      ></div>
     </div>
   </search>
 </header>
 <main>
   <aside>
-    <p>
-      This is intended for testing screen reader, keyboard, and switch input
-      functionality. Please note: This is not a production-ready template.
-    </p>
     <h2>Instructions</h2>
     <h3>Search Input</h3>
 
@@ -75,14 +71,6 @@
         active suggestion (if the user has an active selection). This also
         allows the user select an list item without losing focus on the input
         field.
-      </li>
-      <li>
-        <code>aria-owns</code>: Creates the necessary relations for
-        <code>aria-activedescendant</code> in the accessibility tree (according
-        to W3C's specifications:
-        <a href="https://w3c.github.io/aria/#aria-activedescendant"
-          >w3c aria-activedescendant</a
-        >).
       </li>
       <li>
         <code>aria-autocomplete="list"</code>: Indicates that inputting text
@@ -127,19 +115,16 @@
 
     <h3>Suggestions</h3>
 
-    <p>
-      Suggestions can be displayed using <code>&lt;ul&gt;</code> and
-      <code>&lt;li&gt;</code> elements, with the following attributes:
-    </p>
+    <p>Suggestions should have the following attributes:</p>
 
-    <h4>The <code>&lt;ul&gt;</code> element</h4>
+    <h4>The suggestion container</h4>
     <ul>
       <li>
         <code>role="listbox"</code>: Indicates a list of selectable options.
       </li>
     </ul>
 
-    <h4>The <code>&lt;li&gt;</code> element</h4>
+    <h4>For each options</h4>
     <ul>
       <li>
         <code>role="option"</code>: Announces the list item as an option to
@@ -166,17 +151,11 @@
         input)
       </li>
       <li>
-        <strong>Select a proposal:</strong> Use <kbd>Space</kbd> or
-        <kbd>Enter</kbd>
+        <strong>Select a proposal:</strong> Use <kbd>Space</kbd>,
+        <kbd>Enter</kbd>, <kbd>Tab</kbd> or <kbd>Esc</kbd>
       </li>
-      <li>
-        <strong>After selection:</strong> Automatically reposition focus back in
-        the input
-      </li>
-      <li>
-        <strong>Esc key:</strong> Closes the listbox and repositions focus in
-        the input
-      </li>
+      <li><strong>After selection:</strong> Keep the focus on the input</li>
+      <li><strong>Esc key:</strong> Closes the listbox</li>
       <li>
         <strong>No item selected:</strong> Focus returns to input without
         clearing value
@@ -184,17 +163,6 @@
       <li>
         <strong>Left/Right arrows:</strong> Move the caret within the input
         without closing the listbox
-      </li>
-      <li>
-        <strong>Tab from combobox:</strong> Continues to next focusable element
-      </li>
-      <li>
-        <strong>Tab from listbox:</strong> Continues focus course, input is
-        filled with current suggestion
-      </li>
-      <li>
-        <strong>Shift + Tab from listbox:</strong> Moves focus backward, input
-        is filled with current suggestion
       </li>
     </ul>
   </aside>

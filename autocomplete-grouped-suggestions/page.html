@@ -1,5 +1,5 @@
 <header>
-  <h1>Travel finder (now with cities!)</h1>
+  <h1>Autocomplete with grouped suggestions</h1>
   <search>
     <form>
       <div class="search-container">
@@ -16,7 +16,7 @@
           />
         </svg>
         <label id="search-label" for="search-input" class="sr-only"
-          >Search popular destinations</label
+          >Search countries or cities</label
         >
         <input
           aria-describedby="instructions"
@@ -26,7 +26,7 @@
           aria-activedescendant=""
           autocomplete="off"
           name="input-autocomplete"
-          placeholder="Search popular destinations"
+          placeholder="Search countries or cities"
           type="text"
           role="combobox"
           id="search-input"
@@ -49,15 +49,8 @@
 </header>
 <main>
   <aside>
-      <p>This is intended for testing screen reader, keyboard, and switch input functionality.
-Please note: This is not a production-ready template.</p>
    <h2>Instructions</h2>
-  <p>This example shows an <strong>autocomplete list with grouped suggestions</strong>, tested with:</p>
-  <ul>
-    <li>NVDA</li>
-    <li>TalkBack (Android)</li>
-    <li>VoiceOver (iOS)</li>
-  </ul>
+  <p>This example shows an <strong>autocomplete list with grouped suggestions.</strong>
 
   <h3>Features</h3>
   <ul>
@@ -78,12 +71,12 @@ Sydney 2 of 2
   </pre>
 
   <h3>Key Implementation Notes</h3>
-  <p>This example is based on the "a11y autocomplete suggestions" example. Check it out for more specific information on the aria-attributes used in this example. This is what's uniqe to grouped lists:</p>
+  <p>This example is based on the <a href="https://codepen.io/lucolsave/pen/vENNmMG">a11y autocomplete suggestions</a> Codepen example. Check it out for more specific information on the aria-attributes used in this example. This is what's uniqe to grouped lists:</p>
   <p>Creating accessible groupings was a bit tricky tbh. 
     The example is based on the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/" target="_blank" rel="noopener">WAI-ARIA Grouped Listbox pattern</a>, with a few changes. <br/>
     Here's what worked:</p>
   <ul>
-    <li>Use a separate <code>&lt;ul&gt;</code> for each group with <code>role="group"</code>.</li>
+    <li>Use a separate <code>&lt;div&gt;</code> for each group with <code>role="group"</code>.</li>
     <li>
       <strong>Focus handling:</strong>
       <ul>
@@ -96,11 +89,7 @@ Sydney 2 of 2
         <li>We chose the input-based approach to let users keep typing.</li>
       </ul>
     </li>
-    <li>Group heading <code>&lt;li&gt;</code> elements must have <code>aria-hidden="true"</code> for NVDA to announce the group names.</li>
-    <li>
-      We avoided using <code>aria-owns</code>, as it causes VoiceOver to repeat the input’s
-      <code>aria-describedby</code> instructions for every focused option. Use <code>aria-controls</code> instead.
-    </li>
+    <li>Group heading <code>&lt;div&gt;</code> elements must have <code>aria-hidden="true"</code> for NVDA to announce the group names.</li>
     <li>Group announcements aren’t supported on touch devices (iOS, Android), but overall accessibility is good.</li>
   </ul>
   <aside>

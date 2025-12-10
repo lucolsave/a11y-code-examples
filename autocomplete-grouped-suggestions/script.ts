@@ -64,11 +64,11 @@ input.addEventListener("input", () => {
     ) => {
       if (items.length === 0) return;
 
-      const group = document.createElement("ul");
+      const group = document.createElement("div");
       group.setAttribute("role", "group");
       group.setAttribute("aria-labelledby", groupId);
 
-      const heading = document.createElement("li");
+      const heading = document.createElement("div");
       heading.id = groupId;
       heading.className = "group-heading";
       heading.setAttribute("role", "separator");
@@ -77,23 +77,23 @@ input.addEventListener("input", () => {
       group.appendChild(heading);
 
       items.forEach((item, i) => {
-        const li = document.createElement("li");
-        li.id = `${groupId}-option-${i}`;
-        li.setAttribute("role", "option");
-        li.setAttribute("aria-selected", "false");
-        li.textContent = item.name;
+        const option = document.createElement("div");
+        option.id = `${groupId}-option-${i}`;
+        option.setAttribute("role", "option");
+        option.setAttribute("aria-selected", "false");
+        option.textContent = item.name;
 
-        li.addEventListener("click", () => {
+        option.addEventListener("click", () => {
           input.value = item.name;
           closeListbox();
           input.focus();
         });
 
-        li.addEventListener("mouseover", (e) => {
-          input.setAttribute("aria-activedescendant", li.id);
+        option.addEventListener("mouseover", (e) => {
+          input.setAttribute("aria-activedescendant", option.id);
         });
 
-        group.appendChild(li);
+        group.appendChild(option);
       });
 
       listbox.appendChild(group);
@@ -112,7 +112,7 @@ input.addEventListener("input", () => {
 });
 
 input.addEventListener("keydown", (e: KeyboardEvent) => {
-  const options = listbox.querySelectorAll<HTMLLIElement>('li[role="option"]');
+  const options = listbox.querySelectorAll<HTMLDivElement>('[role="option"]');
   if (!options.length) return;
 
   switch (e.key) {
@@ -154,7 +154,7 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
   }
 });
 
-function updateActiveOption(options: NodeListOf<HTMLLIElement>) {
+function updateActiveOption(options: NodeListOf<HTMLDivElement>) {
   options.forEach((opt, i) => {
     opt.classList.toggle("highlighted", i === currentIndex);
     opt.setAttribute("aria-selected", i === currentIndex ? "true" : "false");
