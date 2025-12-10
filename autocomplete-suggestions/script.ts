@@ -63,6 +63,11 @@ function renderResults(container: HTMLElement, matches: string[]) {
       closeListbox();
       input.focus();
     });
+
+    li.addEventListener("mouseover", (e) => {
+      input.setAttribute("aria-activedescendant", li.id);
+    });
+
     container.appendChild(li);
   });
 }
@@ -91,9 +96,11 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
       break;
     case "Escape":
       e.preventDefault();
-      closeListbox();
-      console.log("esc");
-      input.focus();
+      if (currentIndex >= 0) {
+        options[currentIndex].click();
+      } else {
+        closeListbox();
+      }
       break;
     case "Tab":
       if (currentIndex >= 0) {
