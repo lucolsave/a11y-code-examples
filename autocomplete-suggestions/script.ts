@@ -55,7 +55,6 @@ function renderResults(container: HTMLElement, matches: string[]) {
     const li = document.createElement("li");
     li.id = `option-${i}`;
     li.setAttribute("role", "option");
-    li.setAttribute("aria-selected", "false");
 
     li.textContent = country;
 
@@ -108,7 +107,6 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
 function updateActiveOption(options: NodeListOf<HTMLLIElement>) {
   options.forEach((opt, i) => {
     opt.classList.toggle("highlighted", i === currentIndex);
-    opt.setAttribute("aria-selected", i === currentIndex ? "true" : "false");
   });
 
   if (currentIndex >= 0) {
