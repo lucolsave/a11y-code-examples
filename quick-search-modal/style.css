@@ -152,3 +152,9 @@ input[type="search"]::-webkit-search-cancel-button {
 .close-button:hover {
   color: black;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}

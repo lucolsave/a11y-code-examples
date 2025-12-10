@@ -138,6 +138,10 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
       if (currentIndex >= 0) {
         input.value = options[currentIndex].textContent || input.value;
       }
+      if (input.getAttribute("aria-expanded") === "true") {
+        // Keep the focus on the listbox if a option is opened.
+        e.preventDefault();
+      }
       closeListbox();
       break;
   }
@@ -152,13 +156,14 @@ function updateActiveOption(options: NodeListOf<HTMLLIElement>) {
   if (currentIndex >= 0) {
     input.setAttribute("aria-activedescendant", options[currentIndex].id);
   } else {
-    input.removeAttribute("aria-activedescendant");
+    input.setAttribute("aria-activedescendant", "");
   }
 }
 
 function closeListbox() {
   listbox.classList.add("hidden");
   input.setAttribute("aria-expanded", "false");
+  input.setAttribute("aria-activedescendant", "");
   listbox.innerHTML = "";
   currentIndex = -1;
 }
