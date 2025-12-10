@@ -45,20 +45,12 @@
 </header>
 <main>
   <aside>
-      <p>This is intended for testing screen reader, keyboard, and switch input functionality.
-Please note: This is not a production-ready template.</p>
      <h2>Instructions</h2>
 
   <p>
-    This example shows a <strong>quick search modal</strong>, tested with:
+    This example shows a <strong>quick search modal</strong>
   </p>
-
-  <ul>
-    <li>NVDA</li>
-    <li>TalkBack (Android)</li>
-    <li>VoiceOver (iOS)</li>
-  </ul>
-
+  
   <h3>Key Implementation Notes</h3>
 
   <h4>Search Input</h4>
@@ -75,7 +67,7 @@ These attributes are recommended for the input field inside the dialog:
       <code>autocomplete="off"</code>: Turns off automated assistance in filling out form field values.
     </li>
     <li>
-      I experimented with <code>aria-expanded</code> on the button that opens the dialog. This didn't work well along with the <code>aria-haspopup="dialog"</code> attribute on VoiceOver. TalkBack however doesn't announce that the button opens/expands anything. I think this is a reasonable tradeoff.
+      We experimented with <code>aria-expanded</code> on the button that opens the dialog. This didn't work well along with the <code>aria-haspopup="dialog"</code> attribute on VoiceOver. TalkBack however doesn't announce that the button opens/expands anything. We think this is a reasonable tradeoff.
     </li>
   </ul>
     <h3>Also note</h3>
