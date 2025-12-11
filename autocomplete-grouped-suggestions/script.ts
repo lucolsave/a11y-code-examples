@@ -80,7 +80,6 @@ input.addEventListener("input", () => {
         const option = document.createElement("div");
         option.id = `${groupId}-option-${i}`;
         option.setAttribute("role", "option");
-        option.setAttribute("aria-selected", "false");
         option.textContent = item.name;
 
         option.addEventListener("click", () => {
@@ -157,7 +156,6 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
 function updateActiveOption(options: NodeListOf<HTMLDivElement>) {
   options.forEach((opt, i) => {
     opt.classList.toggle("highlighted", i === currentIndex);
-    opt.setAttribute("aria-selected", i === currentIndex ? "true" : "false");
   });
 
   if (currentIndex >= 0) {
@@ -171,6 +169,7 @@ function closeListbox() {
   listbox.classList.add("hidden");
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("aria-activedescendant", "");
+  // debounce(input.focus, 100)();
   listbox.innerHTML = "";
   currentIndex = -1;
 }
