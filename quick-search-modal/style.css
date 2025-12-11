@@ -13,11 +13,6 @@ form {
   gap: 0.5rem;
 }
 
-h1 {
-  font-size: 1.25rem;
-  font-weight: normal;
-}
-
 .search-trigger {
   display: flex;
   align-items: center;
@@ -89,7 +84,7 @@ aside {
   border-radius: 8px;
   width: 32rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-top: 3.3rem;
+  margin-top: 4.8rem;
   margin-left: 1rem;
 }
 

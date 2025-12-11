@@ -10,6 +10,7 @@
           viewBox="-2 0 19 19"
           xmlns="http://www.w3.org/2000/svg"
           class="cf-icon-svg"
+          aria-hidden="true"
         >
           <path
             d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"
@@ -73,7 +74,7 @@ Sydney 2 of 2
   <h3>Key Implementation Notes</h3>
   <p>This example is based on the <a href="https://codepen.io/lucolsave/pen/vENNmMG">a11y autocomplete suggestions</a> Codepen example. Check it out for more specific information on the aria-attributes used in this example. This is what's uniqe to grouped lists:</p>
   <p>Creating accessible groupings was a bit tricky tbh. 
-    The example is based on the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/" target="_blank" rel="noopener">WAI-ARIA Grouped Listbox pattern</a>, with a few changes. <br/>
+    The example borrows heavily from <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/" target="_blank" rel="noopener">WAI-ARIA Grouped Listbox pattern</a>, with a few changes. <br/>
     Here's what worked:</p>
   <ul>
     <li>Use a separate <code>&lt;div&gt;</code> for each group with <code>role="group"</code>.</li>
@@ -82,7 +83,7 @@ Sydney 2 of 2
       <ul>
         <li>NVDA announces groups only if focus is:
           <ul>
-            <li>on the element with <code>role="listbox"</code> (per APG), or</li>
+            <li>on the element with <code>role="listbox"</code> (<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/">per APG</a>), or</li>
             <li>the <code>input</code> uses <code>aria-activedescendant</code> instead of the listbox (our approach).</li>
           </ul>
         </li>
@@ -90,6 +91,7 @@ Sydney 2 of 2
       </ul>
     </li>
     <li>Group heading <code>&lt;div&gt;</code> elements must have <code>aria-hidden="true"</code> for NVDA to announce the group names.</li>
+    <li>Group headings should not have the <code>role="option"</code>attribute.</li>
     <li>Group announcements aren’t supported on touch devices (iOS, Android), but overall accessibility is good.</li>
   </ul>
   <aside>
