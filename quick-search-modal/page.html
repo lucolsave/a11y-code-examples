@@ -50,9 +50,7 @@
             aria-controls="results"
           />
         </div>
-        <button id="confirm-search" class="confirm-search" aria-label="Search">
-          Search
-        </button>
+        <button id="confirm-search" class="confirm-search">Search</button>
         <button
           id="close-modal"
           aria-label="Close search dialog"
@@ -84,11 +82,22 @@
       <li>
         <code>aria-controls</code>: Should reference the ID of the element
         containing search suggestions. (Note: This element should always exist
-        in the DOM, even if it is hidden initially.)
+        in the DOM, even if it is empty initially.)
       </li>
       <li>
         <code>autocomplete="off"</code>: Turns off automated assistance in
         filling out form field values.
+      </li>
+      <li>
+        Add a visually hidden <code>&lt;label&gt;</code> for the search input.
+        The magnifying glass icon and the placeholder text “Search…” are enough
+        as the visible label for sighted users, but the hidden label ensures
+        screen readers announce it properly.
+      </li>
+      <li>
+        Add <code>aria-hidden="true"</code> to the <code>&lt;svg&gt;</code> that
+        represents the magnifying-glass icon so screen readers ignore it and
+        don't announce it.
       </li>
       <li>
         We experimented with <code>aria-expanded</code> on the button that opens

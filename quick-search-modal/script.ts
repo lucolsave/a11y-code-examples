@@ -172,8 +172,8 @@ searchInput.addEventListener("input", () => {
 const updateLiveRegion = debounce((count: number) => {
   let text =
     count === 0
-      ? "No options available."
-      : `${count} option${count > 1 ? "s" : ""} available.`;
+      ? "No suggestions available."
+      : `${count} suggestion${count > 1 ? "s" : ""} available.`;
 
   const isIdentical = liveRegion.textContent === text;
   // Change the text to make sure it's announced again
