@@ -20,7 +20,6 @@
           >Search countries or cities</label
         >
         <input
-          aria-describedby="instructions"
           aria-expanded="false"
           aria-controls="autocomplete-list"
           aria-autocomplete="list"
@@ -51,25 +50,7 @@
 <main>
   <aside>
    <h2>Instructions</h2>
-  <p>This example shows an <strong>autocomplete list with grouped suggestions.</strong>
-
-  <h3>Features</h3>
-  <ul>
-    <li>Navigation instructions are announced to screen readers.</li>
-    <li>Suggestion updates are announced using a live region.</li>
-    <li>NVDA announces group names as users move between them:</li>
-  </ul>
-
-  <pre aria-label="Screen reader example output">
-3 options available. Use up and down arrows to review and ENTER to select.
-expanded
-list
-Countries grouping
-Spain 1 of 1
-Cities grouping
-Stockholm 1 of 2
-Sydney 2 of 2
-  </pre>
+  <p>This example shows an <strong>autocomplete list with grouped suggestions.</strong> </p>
 
   <h3>Key Implementation Notes</h3>
   <p>This example is based on the <a href="https://codepen.io/lucolsave/pen/vENNmMG">a11y autocomplete suggestions</a> Codepen example. Check it out for more specific information on the aria-attributes used in this example. This is what's uniqe to grouped lists:</p>
@@ -92,8 +73,22 @@ Sydney 2 of 2
     </li>
     <li>Group heading <code>&lt;div&gt;</code> elements must have <code>aria-hidden="true"</code> for NVDA to announce the group names.</li>
     <li>Group headings should not have the <code>role="option"</code>attribute.</li>
-    <li>Group announcements aren’t supported on touch devices (iOS, Android), but overall accessibility is good.</li>
+    <li>Group announcements aren't supported on touch devices (iOS, Android), but overall accessibility is good.</li>
   </ul>
+
+  <p>This is what's announced by NVDA as the suggestions appears and the users moves between groups:
+  <pre aria-label="Screen reader example output">
+3 options available.
+expanded
+list
+Countries grouping
+Spain 1 of 1
+Cities grouping
+Stockholm 1 of 2
+Sydney 2 of 2
+  </pre>
+</p>
+
   <aside>
 </main>
     <div
@@ -101,8 +96,3 @@ Sydney 2 of 2
       id="search-status"
       class="search-status sr-only"
     ></div>
-     <div id="instructions" class="sr-only">
-      When autocomplete results are available use up and down arrows to review
-      and enter to select. Touch device users, explore by touch or with swipe
-      gestures.
-    </div>

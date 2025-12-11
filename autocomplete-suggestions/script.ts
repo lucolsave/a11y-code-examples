@@ -147,6 +147,7 @@ const updateLiveRegion = debounce((count: number) => {
       : `${count} option${count > 1 ? "s" : ""} available.`;
 
   const isIdentical = statusRegion.textContent === text;
+  // Change the text to make sure it's announced again
   if (isIdentical) text = text + " ";
 
   statusRegion.textContent = text;

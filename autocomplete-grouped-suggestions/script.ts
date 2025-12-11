@@ -179,14 +179,13 @@ const updateLiveRegion = debounce((count: number) => {
   let text =
     count === 0
       ? "No options available."
-      : `${count} option${
-          count > 1 ? "s" : ""
-        } available. Use up and down arrows to review and ENTER to select.`;
+      : `${count} option${count > 1 ? "s" : ""} available.`;
 
   const isIdentical = statusRegion.textContent === text;
+  // Change the text to make sure it's announced again
   if (isIdentical) text = text + " ";
 
-  statusRegion.textContent = `${count} result${count !== 1 ? "s" : ""} found`;
+  statusRegion.textContent = text;
 
   // Clear the content after 2 seconds to make sure the user doesn't access the aria-live region with arrow-key navigation
   setTimeout(() => {

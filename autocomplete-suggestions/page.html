@@ -27,7 +27,6 @@
           aria-controls="autocomplete-list"
           aria-haspopup="listbox"
           aria-expanded="false"
-          aria-describedby="instructions"
           aria-activedescendant=""
           autocomplete="off"
           placeholder="Search countries"
@@ -101,13 +100,20 @@
         filling out form field values.
       </li>
       <li>
-        <code>aria-describedby</code>: Points to an element with visually hidden
-        instructions for screen reader users.
-      </li>
-      <li>
         <code>aria-haspopup</code> is not required becuase the element with the
         role combobox have an implicit <code>aria-haspopup</code> value of
         <code>listbox</code>.
+      </li>
+      <li>
+        Add a visually hidden <code>&lt;label&gt;</code> for the search input.
+        The magnifying glass icon and the placeholder text “Search…” are enough
+        as the visible label for sighted users, but the hidden label ensures
+        screen readers announce it properly.
+      </li>
+      <li>
+        Add <code>aria-hidden="true"</code> to the <code>&lt;svg&gt;</code> that
+        represents the magnifying-glass icon so screen readers ignore it and
+        don't announce it.
       </li>
     </ul>
 
@@ -177,7 +183,3 @@
   </aside>
 </main>
 <div aria-live="polite" id="search-status" class="search-status sr-only"></div>
-<div id="instructions" class="sr-only">
-  When autocomplete results are available use up and down arrows to review and
-  enter to select. Touch device users, explore by touch or with swipe gestures.
-</div>
