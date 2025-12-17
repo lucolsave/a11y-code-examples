@@ -53,6 +53,7 @@ function renderResults(container: HTMLElement, matches: string[]) {
     const option = document.createElement("div");
     option.id = `option-${i}`;
     option.setAttribute("role", "option");
+    option.setAttribute("tabindex", "0");
 
     option.textContent = country;
 

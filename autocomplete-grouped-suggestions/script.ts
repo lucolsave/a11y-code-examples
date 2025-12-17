@@ -80,6 +80,7 @@ input.addEventListener("input", () => {
         const option = document.createElement("div");
         option.id = `${groupId}-option-${i}`;
         option.setAttribute("role", "option");
+        option.setAttribute("tabindex", "0");
         option.textContent = item.name;
 
         option.addEventListener("click", () => {
