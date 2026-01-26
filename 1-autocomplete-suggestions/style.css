@@ -79,6 +79,37 @@ aside {
   filter: brightness(85%);
 }
 
+.close-suggestions {
+  background-color: lightslategrey;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  align-self: stretch;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close-suggestions:not(.hidden) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close-suggestions:not(.hidden):focus {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.close-suggestions:hover {
+  filter: brightness(85%);
+}
+
 .autocomplete-container {
   position: relative;
 }

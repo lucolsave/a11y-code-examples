@@ -4,6 +4,9 @@ const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
   "confirm-search",
 ) as HTMLButtonElement;
+const closeSuggestionsBtn = document.getElementById(
+  "close-suggestions",
+) as HTMLButtonElement;
 
 const countries = [
   "Australia",
@@ -44,6 +47,7 @@ function showOptions() {
 
     listbox.classList.remove("hidden");
     input.setAttribute("aria-expanded", "true");
+    closeSuggestionsBtn.classList.remove("hidden");
     updateLiveRegion(matches.length);
   } else {
     closeListbox();
@@ -139,6 +143,7 @@ function updateActiveOption(options: NodeListOf<HTMLDivElement>) {
 }
 
 function closeListbox() {
+  closeSuggestionsBtn.classList.add("hidden");
   listbox.classList.add("hidden");
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("aria-activedescendant", "");
@@ -151,6 +156,12 @@ confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   console.log(`Show results for ${input.value.toLowerCase()}...`);
+});
+
+closeSuggestionsBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeListbox();
+  confirmSearchBtn.focus();
 });
 
 const updateLiveRegion = debounce((count: number) => {
