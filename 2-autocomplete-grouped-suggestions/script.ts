@@ -9,6 +9,9 @@ const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
   "confirm-search",
 ) as HTMLButtonElement;
+const closeSuggestionsBtn = document.getElementById(
+  "close-suggestions",
+) as HTMLButtonElement;
 const externalResults = document.getElementById(
   "external-results",
 ) as HTMLDivElement;
@@ -104,6 +107,7 @@ input.addEventListener("input", () => {
 
     listbox.classList.remove("hidden");
     input.setAttribute("aria-expanded", "true");
+    closeSuggestionsBtn.classList.remove("hidden");
     updateLiveRegion(filtered.length);
   } else {
     closeListbox();
@@ -168,6 +172,7 @@ function updateActiveOption(options: NodeListOf<HTMLDivElement>) {
 
 function closeListbox() {
   listbox.classList.add("hidden");
+  closeSuggestionsBtn.classList.add("hidden");
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("aria-activedescendant", "");
   // debounce(input.focus, 100)();
@@ -206,6 +211,12 @@ confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   console.log(`Show results for ${input.value.toLowerCase()}`);
+});
+
+closeSuggestionsBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeListbox();
+  confirmSearchBtn.focus();
 });
 
 function debounce<T extends (...args: any[]) => void>(fn: T, delay: number): T {

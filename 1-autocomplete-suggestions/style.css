@@ -106,10 +106,6 @@ aside {
   pointer-events: auto;
 }
 
-.close-suggestions:hover {
-  filter: brightness(85%);
-}
-
 .autocomplete-container {
   position: relative;
 }
