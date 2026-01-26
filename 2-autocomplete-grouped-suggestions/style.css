@@ -10,6 +10,12 @@ search {
   max-width: 30rem;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
 label {
   font-weight: bold;
 }
@@ -19,6 +25,7 @@ input {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
 }
 
 form {
@@ -83,35 +90,37 @@ aside {
   background-color: white;
   margin: 0;
   padding: 0;
-  list-style: none;
   overflow-y: auto;
   position: absolute;
 }
 
-.autocomplete-list li {
+.autocomplete-list [role="option"],
+.autocomplete-list .group-heading {
   position: relative;
   padding: 0.75rem;
-  cursor: pointer;
-  display: flex;
-  gap: 0.25rem;
+  list-style: none;
 }
 
-
-input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-  display: none;
-}
-
-.autocomplete-list li:not(:last-of-type) {
+.autocomplete-list .group-heading {
   border-bottom: 1px solid #ccc;
+  font-weight: bold;
 }
 
-.autocomplete-list li:hover {
+.autocomplete-list [role="option"] {
+  border-bottom: 1px solid #ccc;
+  padding-left: 1.5rem;
+}
+
+.autocomplete-list [role="option"]:last-of-type {
+  border-bottom: none;
+}
+
+.autocomplete-list [role="option"]:hover {
   background-color: aliceblue;
+  cursor: pointer;
 }
 
-.autocomplete-list li.highlighted {
+.autocomplete-list [role="option"].highlighted {
   border-left: 3px solid orange;
   font-weight: bold;
 }

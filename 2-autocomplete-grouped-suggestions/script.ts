@@ -7,10 +7,10 @@ const input = document.getElementById("search-input") as HTMLInputElement;
 const listbox = document.getElementById("autocomplete-list") as HTMLDivElement;
 const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
-  "confirm-search"
+  "confirm-search",
 ) as HTMLButtonElement;
 const externalResults = document.getElementById(
-  "external-results"
+  "external-results",
 ) as HTMLDivElement;
 
 const suggestions: Suggestion[] = [
@@ -50,7 +50,7 @@ input.addEventListener("input", () => {
 
   const query = input.value.toLowerCase();
   const filtered = suggestions.filter((s) =>
-    s.name.toLowerCase().startsWith(query)
+    s.name.toLowerCase().startsWith(query),
   );
 
   const countries = filtered.filter((s) => s.type === "country");
@@ -60,7 +60,7 @@ input.addEventListener("input", () => {
     const addGroup = (
       items: Suggestion[],
       groupLabel: string,
-      groupId: string
+      groupId: string,
     ) => {
       if (items.length === 0) return;
 
@@ -71,9 +71,9 @@ input.addEventListener("input", () => {
       const heading = document.createElement("div");
       heading.id = groupId;
       heading.className = "group-heading";
-      heading.setAttribute("role", "separator");
-      heading.setAttribute("aria-hidden", "true");
       heading.textContent = groupLabel;
+      heading.setAttribute("role", "presentation");
+
       group.appendChild(heading);
 
       items.forEach((item, i) => {
