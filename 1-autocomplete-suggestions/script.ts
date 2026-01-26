@@ -2,7 +2,7 @@ const input = document.getElementById("search-input") as HTMLInputElement;
 const listbox = document.getElementById("autocomplete-list") as HTMLDivElement;
 const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
-  "confirm-search"
+  "confirm-search",
 ) as HTMLButtonElement;
 
 const countries = [
@@ -29,14 +29,17 @@ const countries = [
 
 let currentIndex: number = -1;
 
-input.addEventListener("input", () => {
+function showOptions() {
   const query = input.value.toLowerCase();
-  const matches = countries.filter((c) => c.toLowerCase().startsWith(query));
+  const matches =
+    !query || query.length === 0
+      ? countries.slice(0, 5)
+      : countries.filter((c) => c.toLowerCase().startsWith(query));
 
   listbox.innerHTML = "";
   currentIndex = -1;
 
-  if (query.length > 0 && matches.length > 0) {
+  if (matches.length > 0) {
     renderResults(listbox, matches);
 
     listbox.classList.remove("hidden");
@@ -46,6 +49,14 @@ input.addEventListener("input", () => {
     closeListbox();
     updateLiveRegion(0);
   }
+}
+
+input.addEventListener("focus", () => {
+  showOptions();
+});
+
+input.addEventListener("input", () => {
+  showOptions();
 });
 
 function renderResults(container: HTMLElement, matches: string[]) {
