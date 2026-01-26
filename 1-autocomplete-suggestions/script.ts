@@ -36,7 +36,7 @@ function showOptions() {
   const query = input.value.toLowerCase();
   const matches =
     !query || query.length === 0
-      ? countries.slice(0, 5)
+      ? countries.slice(0, 5) // Show first 5 when empty
       : countries.filter((c) => c.toLowerCase().startsWith(query));
 
   listbox.innerHTML = "";

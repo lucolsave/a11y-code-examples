@@ -47,19 +47,32 @@ const suggestions: Suggestion[] = [
 
 let currentIndex: number = -1;
 
-input.addEventListener("input", () => {
+function showOptions() {
   listbox.innerHTML = "";
   currentIndex = -1;
 
   const query = input.value.toLowerCase();
-  const filtered = suggestions.filter((s) =>
-    s.name.toLowerCase().startsWith(query),
-  );
+  const filtered =
+    !query || query.length === 0
+      ? [
+          // Show first 3 of each type when empty
+          ...suggestions.filter((s) => s.type === "country").slice(0, 3),
+          ...suggestions.filter((s) => s.type === "city").slice(0, 3),
+        ]
+      : suggestions.filter((s) => s.name.toLowerCase().startsWith(query));
 
   const countries = filtered.filter((s) => s.type === "country");
   const cities = filtered.filter((s) => s.type === "city");
 
-  if (filtered.length > 0 && query.length > 0) {
+  if (filtered.length > 0) {
+    // Add non-selectable header
+    const header =
+      !query || query.length === 0 ? "popular destinations" : "results";
+    const headerElement = document.createElement("div");
+    headerElement.classList.add("listbox-header");
+    headerElement.textContent = header;
+    headerElement.setAttribute("role", "presentation");
+    listbox.appendChild(headerElement);
     const addGroup = (
       items: Suggestion[],
       groupLabel: string,
@@ -113,6 +126,14 @@ input.addEventListener("input", () => {
     closeListbox();
     updateLiveRegion(0);
   }
+}
+
+input.addEventListener("focus", () => {
+  showOptions();
+});
+
+input.addEventListener("input", () => {
+  showOptions();
 });
 
 input.addEventListener("keydown", (e: KeyboardEvent) => {
