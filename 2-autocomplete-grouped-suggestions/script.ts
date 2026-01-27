@@ -9,12 +9,14 @@ const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
   "confirm-search",
 ) as HTMLButtonElement;
+/*
+  A visually hidden button that's only accessible while suggestions are shown.
+  This is needed because TalkBack/VoiceOver does not trigger a blur event when the user leaves the input, so the suggestions stay visible and take up much of the screen.
+  The hidden button gives TalkBack/VoiceOver users a way to close the suggestions.
+*/
 const closeSuggestionsBtn = document.getElementById(
   "close-suggestions",
 ) as HTMLButtonElement;
-const externalResults = document.getElementById(
-  "external-results",
-) as HTMLDivElement;
 
 const suggestions: Suggestion[] = [
   { name: "Australia", type: "country" },

@@ -120,17 +120,6 @@
       </li>
     </ul>
 
-    <p><strong>Example aria-describedby text:</strong></p>
-    <blockquote>
-      When autocomplete results are available use up and down arrows to review
-      and enter to select. Touch device users, explore by touch or with swipe
-      gestures.
-    </blockquote>
-
-    <p>
-      Also note that all form elements should have a <code>&lt;label&gt;</code>.
-    </p>
-
     <h3>Suggestions</h3>
 
     <p>Suggestions should have the following attributes:</p>
@@ -179,6 +168,20 @@
         without closing the listbox
       </li>
     </ul>
+
+    <h2>Testing with mobile screen readers</h2>
+    <p>
+      When testing with TalkBack (Android) and VoiceOver (Apple), we found that
+      the suggestions do not close when focus leaves the input. This happens
+      because mobile screen readers handle focus differently than typical web
+      focus, and they do not tell us when the input loses focus.
+    </p>
+    <p>
+      To fix this, we added a hidden button that lets users close the
+      suggestions. This issue only exists because we show suggestions even when
+      the search input is empty, which we do to match how search suggestions are
+      usually built in our customer projects.
+    </p>
   </aside>
 </main>
 <div
