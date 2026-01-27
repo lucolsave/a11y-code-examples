@@ -79,16 +79,6 @@ aside {
   filter: brightness(85%);
 }
 
-.close-suggestions {
-  background-color: lightslategrey;
-  color: white;
-  border: 0;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  align-self: stretch;
-}
-
 .autocomplete-container {
   position: relative;
 }
