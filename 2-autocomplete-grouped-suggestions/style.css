@@ -88,24 +88,6 @@ aside {
   font-size: 1rem;
   font-weight: bold;
   align-self: stretch;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.close-suggestions:not(.hidden) {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.close-suggestions:not(.hidden):focus {
-  opacity: 1;
-  pointer-events: auto;
-  outline: 3px solid #4d90fe;
-  outline-offset: 2px;
 }
 
 .autocomplete-container {

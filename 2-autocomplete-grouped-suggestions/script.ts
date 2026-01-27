@@ -65,14 +65,6 @@ function showOptions() {
   const cities = filtered.filter((s) => s.type === "city");
 
   if (filtered.length > 0) {
-    // Add non-selectable header
-    const header =
-      !query || query.length === 0 ? "popular destinations" : "results";
-    const headerElement = document.createElement("div");
-    headerElement.classList.add("listbox-header");
-    headerElement.textContent = header;
-    headerElement.setAttribute("role", "presentation");
-    listbox.appendChild(headerElement);
     const addGroup = (
       items: Suggestion[],
       groupLabel: string,

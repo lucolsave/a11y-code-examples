@@ -147,7 +147,6 @@ function closeListbox() {
   listbox.classList.add("hidden");
   input.setAttribute("aria-expanded", "false");
   input.setAttribute("aria-activedescendant", "");
-  // debounce(input.focus, 100)();
   listbox.innerHTML = "";
   currentIndex = -1;
 }
