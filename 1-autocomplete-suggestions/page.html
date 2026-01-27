@@ -129,6 +129,19 @@
       <li>
         <code>role="listbox"</code>: Indicates a list of selectable options.
       </li>
+
+      <li>
+        <code>tabindex="0"</code>: Allows users of mobile assistive technologies
+        to reach the options using swipe gestures.
+      </li>
+      <li>
+        The listbox needs a label. This example uses
+        <code>aria-labelledby="search-label"</code>, which works because the
+        search label is short and clear. If the search input label is long or
+        not suitable as a listbox label (for example, “Hi, what are you looking
+        for today?”), do not reference it. Use <code>aria-label</code> on the
+        listbox instead.
+      </li>
     </ul>
 
     <h4>For each options</h4>
@@ -136,6 +149,10 @@
       <li>
         <code>role="option"</code>: Announces the list item as an option to
         screen readers.
+      </li>
+      <li>
+        <code>tabindex="0"</code>: Allows users of mobile assistive technologies
+        to reach the options using swipe gestures.
       </li>
     </ul>
 
@@ -168,6 +185,12 @@
         without closing the listbox
       </li>
     </ul>
+
+    <h3>Announcements</h3>
+    <p>
+      We use a short 500 ms delay before updating live regions so the user can
+      finish typing before new options are announced.
+    </p>
 
     <h2>Testing with mobile screen readers</h2>
     <p>
