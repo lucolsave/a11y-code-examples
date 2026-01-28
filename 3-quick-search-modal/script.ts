@@ -26,10 +26,10 @@ const data = [
 const openBtn = document.getElementById("open-modal") as HTMLButtonElement;
 const dialog = document.getElementById("search-modal") as HTMLDialogElement;
 const confirmSearchBtn = document.getElementById(
-  "confirm-search"
+  "confirm-search",
 ) as HTMLButtonElement;
 const openBtnText = document.getElementById(
-  "open-button-text"
+  "open-button-text",
 ) as HTMLSpanElement;
 const closeBtn = document.getElementById("close-modal") as HTMLButtonElement;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
@@ -87,7 +87,7 @@ dialog.addEventListener("click", (e) => {
 
 function renderResults(
   container: HTMLElement,
-  groups: { header: string; links: (typeof data)[0]["links"] }[]
+  groups: { header: string; links: (typeof data)[0]["links"] }[],
 ) {
   for (const group of groups) {
     const groupEl = document.createElement("div");
@@ -116,7 +116,7 @@ function getMatchedGroups(term: string) {
   return data
     .map((group) => {
       const matchedLinks = group.links.filter((link) =>
-        link.title.toLowerCase().includes(term.toLowerCase())
+        link.title.toLowerCase().includes(term.toLowerCase()),
       );
       return matchedLinks.length
         ? { header: group.header, links: matchedLinks }
@@ -137,7 +137,7 @@ searchInput.addEventListener("input", () => {
 
   for (const group of data) {
     const matchedLinks = group.links.filter((link) =>
-      link.title.toLowerCase().includes(term.toLowerCase())
+      link.title.toLowerCase().includes(term.toLowerCase()),
     );
 
     if (matchedLinks.length > 0) {
@@ -156,7 +156,6 @@ searchInput.addEventListener("input", () => {
         const a = document.createElement("a");
         a.href = link.url;
         a.textContent = link.title.trim();
-        a.tabIndex = 0;
         li.appendChild(a);
         ul.appendChild(li);
       }
