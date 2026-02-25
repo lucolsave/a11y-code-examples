@@ -48,6 +48,7 @@ const suggestions: Suggestion[] = [
 ];
 
 let currentIndex: number = -1;
+let originalQuery: string = "";
 
 function showOptions() {
   listbox.innerHTML = "";
@@ -137,13 +138,22 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
   switch (e.key) {
     case "ArrowDown":
       e.preventDefault();
+      if (currentIndex === -1) {
+        originalQuery = input.value;
+      }
       currentIndex = (currentIndex + 1) % options.length;
       updateActiveOption(options);
+      input.value = options[currentIndex].textContent || input.value;
       break;
     case "ArrowUp":
       e.preventDefault();
       currentIndex = currentIndex <= 0 ? -1 : currentIndex - 1;
       updateActiveOption(options);
+      if (currentIndex === -1) {
+        input.value = originalQuery;
+      } else {
+        input.value = options[currentIndex].textContent || input.value;
+      }
       break;
     case "Enter":
     case " ":
@@ -193,6 +203,7 @@ function closeListbox() {
   // debounce(input.focus, 100)();
   listbox.innerHTML = "";
   currentIndex = -1;
+  originalQuery = "";
 }
 
 const updateLiveRegion = debounce((count: number) => {

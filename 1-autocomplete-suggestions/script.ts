@@ -36,6 +36,7 @@ const countries = [
 ];
 
 let currentIndex: number = -1;
+let originalQuery: string = "";
 
 function showOptions() {
   const query = input.value.toLowerCase();
@@ -98,13 +99,22 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
   switch (e.key) {
     case "ArrowDown":
       e.preventDefault();
+      if (currentIndex === -1) {
+        originalQuery = input.value;
+      }
       currentIndex = (currentIndex + 1) % options.length;
       updateActiveOption(options);
+      input.value = options[currentIndex].textContent || input.value;
       break;
     case "ArrowUp":
       e.preventDefault();
       currentIndex = currentIndex <= 0 ? -1 : currentIndex - 1;
       updateActiveOption(options);
+      if (currentIndex === -1) {
+        input.value = originalQuery;
+      } else {
+        input.value = options[currentIndex].textContent || input.value;
+      }
       break;
     case "Enter":
     case " ":
@@ -154,6 +164,7 @@ function closeListbox() {
   input.setAttribute("aria-activedescendant", "");
   listbox.innerHTML = "";
   currentIndex = -1;
+  originalQuery = "";
 }
 
 confirmSearchBtn.addEventListener("click", (e) => {
