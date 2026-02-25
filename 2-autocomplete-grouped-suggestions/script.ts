@@ -156,7 +156,6 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
       }
       break;
     case "Enter":
-    case " ":
       if (currentIndex >= 0) {
         e.preventDefault();
         options[currentIndex].click();
