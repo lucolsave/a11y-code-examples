@@ -65,7 +65,7 @@ function showOptions() {
   }
 }
 
-input.addEventListener("click", () => {
+input.addEventListener("focus", () => {
   showOptions();
 });
 
