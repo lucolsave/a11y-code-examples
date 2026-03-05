@@ -58,7 +58,7 @@ confirmSearchBtn.addEventListener("click", (e) => {
   // Close modal and update external results
   dialog.close();
 
-  console.log(`Show results for ${query}...`);
+  alert(`Show results for ${query}`);
 });
 
 // Close dialog via button

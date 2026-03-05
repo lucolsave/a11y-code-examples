@@ -249,7 +249,7 @@ document.addEventListener("click", (e) => {
 confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  console.log(`Show results for ${input.value.toLowerCase()}`);
+  alert(`Show results for ${input.value.toLowerCase()}`);
 });
 
 closeSuggestionsBtn.addEventListener("click", (e) => {
