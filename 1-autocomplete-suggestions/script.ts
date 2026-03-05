@@ -123,7 +123,9 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
     case "Enter":
       if (currentIndex >= 0) {
         e.preventDefault();
-        options[currentIndex].click();
+        input.value = options[currentIndex].textContent || input.value;
+        closeListbox();
+        submitSearch();
       }
       break;
     case "Escape":
@@ -170,10 +172,16 @@ function closeListbox() {
   originalQuery = "";
 }
 
+function submitSearch() {
+  const query = input.value.trim();
+  if (query) {
+    alert(`Show results for ${query.toLowerCase()}`);
+  }
+}
+
 confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
-  alert(`Show results for ${input.value.toLowerCase()}`);
+  submitSearch();
 });
 
 closeSuggestionsBtn.addEventListener("click", (e) => {
