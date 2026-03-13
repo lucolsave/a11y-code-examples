@@ -50,7 +50,10 @@ confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const query = searchInput.value.trim().toLowerCase();
-  if (query === "") return;
+  if (query === "") {
+    searchInput.focus();
+    return;
+  }
 
   // Set query on trigger button
   openBtnText.textContent = query;

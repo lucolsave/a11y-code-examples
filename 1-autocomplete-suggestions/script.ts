@@ -176,6 +176,8 @@ function submitSearch() {
   const query = input.value.trim();
   if (query) {
     alert(`A search is performed here. Remember to manage the focus accordingly.`);
+  } else {
+    input.focus();
   }
 }
 
