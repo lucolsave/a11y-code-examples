@@ -58,7 +58,7 @@ confirmSearchBtn.addEventListener("click", (e) => {
   // Close modal and update external results
   dialog.close();
 
-  alert(`Show results for ${query}`);
+  alert(`A search is performed here. Remember to manage the focus accordingly.`);
 });
 
 // Close dialog via button

@@ -175,7 +175,7 @@ function closeListbox() {
 function submitSearch() {
   const query = input.value.trim();
   if (query) {
-    alert(`Show results for ${query.toLowerCase()}`);
+    alert(`A search is performed here. Remember to manage the focus accordingly.`);
   }
 }
 
