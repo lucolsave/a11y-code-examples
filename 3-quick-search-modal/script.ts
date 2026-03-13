@@ -46,6 +46,18 @@ openBtn.addEventListener("click", () => {
   setTimeout(() => searchInput.focus(), 0);
 });
 
+// Prevent Enter from closing the dialog when focus is on the input or Search button
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !searchInput.value) e.preventDefault();
+});
+
+confirmSearchBtn.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !searchInput.value) {
+    e.preventDefault();
+    searchInput.focus();
+  }
+});
+
 confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
