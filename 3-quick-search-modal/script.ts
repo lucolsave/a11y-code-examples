@@ -46,13 +46,6 @@ openBtn.addEventListener("click", () => {
   setTimeout(() => searchInput.focus(), 0);
 });
 
-function focusTopOfPage() {
-  const topButton = document.getElementById("top-of-page");
-  if (topButton) {
-    (topButton as HTMLElement).focus();
-  }
-}
-
 confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -66,7 +59,6 @@ confirmSearchBtn.addEventListener("click", (e) => {
   dialog.close();
 
   alert(`Show results for ${query}`);
-  focusTopOfPage();
 });
 
 // Close dialog via button

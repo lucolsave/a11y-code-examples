@@ -248,18 +248,10 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function focusTopOfPage() {
-  const topButton = document.getElementById("top-of-page");
-  if (topButton) {
-    (topButton as HTMLElement).focus();
-  }
-}
-
 function submitSearch() {
   const query = input.value.trim();
   if (query) {
     alert(`Show results for ${query.toLowerCase()}`);
-    focusTopOfPage();
   }
 }
 
