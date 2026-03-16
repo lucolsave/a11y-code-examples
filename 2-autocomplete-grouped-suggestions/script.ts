@@ -253,7 +253,7 @@ function submitSearch() {
   if (query) {
     alert(`A search is performed here. Remember to manage the focus accordingly.`);
   } else {
-    input.focus();
+    setTimeout(() => input.focus(), 0);
   }
 }
 

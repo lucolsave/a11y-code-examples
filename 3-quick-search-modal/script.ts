@@ -54,7 +54,7 @@ searchInput.addEventListener("keydown", (e) => {
 confirmSearchBtn.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !searchInput.value) {
     e.preventDefault();
-    searchInput.focus();
+    setTimeout(() => searchInput.focus(), 0);
   }
 });
 
@@ -63,7 +63,7 @@ confirmSearchBtn.addEventListener("click", (e) => {
 
   const query = searchInput.value.trim().toLowerCase();
   if (query === "") {
-    searchInput.focus();
+    setTimeout(() => searchInput.focus(), 0);
     return;
   }
 
@@ -140,8 +140,7 @@ function getMatchedGroups(term: string) {
     .filter(Boolean) as { header: string; links: (typeof data)[0]["links"] }[];
 }
 
-// Filter logic
-searchInput.addEventListener("input", () => {
+function showSuggestions() {
   const term = searchInput.value.trim();
   let totalResults = 0;
   results.innerHTML = "";
@@ -181,7 +180,10 @@ searchInput.addEventListener("input", () => {
   }
 
   updateLiveRegion(totalResults);
-});
+}
+
+searchInput.addEventListener("focus", showSuggestions);
+searchInput.addEventListener("input", showSuggestions);
 
 const updateLiveRegion = debounce((count: number) => {
   let text =
