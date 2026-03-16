@@ -42,8 +42,12 @@ openBtn.addEventListener("click", () => {
   searchInput.value = "";
   results.innerHTML = "";
   liveRegion.textContent = "";
-  // Allow the dialog to open before we set focus
-  setTimeout(() => searchInput.focus(), 0);
+  // Allow the dialog to open before we set focus. Call showSuggestions() explicitly
+  // because the focus event often does not fire when focus is moved into a newly opened dialog.
+  setTimeout(() => {
+    searchInput.focus();
+    showSuggestions();
+  }, 0);
 });
 
 // Prevent Enter from closing the dialog when focus is on the input or Search button
