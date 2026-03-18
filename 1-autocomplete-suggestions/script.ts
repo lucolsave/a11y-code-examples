@@ -140,10 +140,6 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
       if (currentIndex >= 0) {
         input.value = options[currentIndex].textContent || input.value;
       }
-      if (input.getAttribute("aria-expanded") === "true") {
-        // Keep the focus on the listbox if a option is opened.
-        e.preventDefault();
-      }
       closeListbox();
 
       break;
