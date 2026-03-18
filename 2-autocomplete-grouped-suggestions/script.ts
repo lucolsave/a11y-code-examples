@@ -97,7 +97,6 @@ function showOptions() {
       heading.id = groupId;
       heading.className = "group-heading";
       heading.textContent = groupLabel;
-      heading.setAttribute("role", "presentation");
 
       group.appendChild(heading);
 
