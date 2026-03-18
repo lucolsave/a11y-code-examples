@@ -8,7 +8,7 @@
           <path
             d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z" />
         </svg>
-        <label id="search-label" for="search-input" class="sr-only">Search countries</label>
+        <label for="search-input" class="sr-only">Search countries</label>
         <input id="search-input" type="search" role="combobox" aria-autocomplete="list"
           aria-controls="autocomplete-list" aria-haspopup="listbox" aria-expanded="false" aria-activedescendant=""
           autocomplete="off" placeholder="Search countries" />
@@ -21,7 +21,7 @@
       </div>
     </form>
     <div class="autocomplete-container">
-      <div id="autocomplete-list" role="listbox" class="autocomplete-list hidden" aria-labelledby="search-label"
+      <div id="autocomplete-list" role="listbox" class="autocomplete-list hidden" aria-label="Search suggestions"
         tabindex="0"></div>
     </div>
   </search>
