@@ -35,11 +35,12 @@ const closeBtn = document.getElementById("close-modal") as HTMLButtonElement;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const results = document.getElementById("results") as HTMLDivElement;
 const liveRegion = document.getElementById("live-region") as HTMLDivElement;
+let lastSearchedQuery = "";
 
 // Open dialog
 openBtn.addEventListener("click", () => {
   dialog.showModal();
-  searchInput.value = "";
+  searchInput.value = lastSearchedQuery;
   results.innerHTML = "";
   liveRegion.textContent = "";
   // Allow the dialog to open before we set focus. Call showSuggestions() explicitly
@@ -73,6 +74,8 @@ confirmSearchBtn.addEventListener("click", (e) => {
 
   // Set query on trigger button
   openBtnText.textContent = query;
+  openBtn.setAttribute("aria-label", `Search, ${query}`);
+  lastSearchedQuery = query;
 
   // Close modal and update external results
   dialog.close();
