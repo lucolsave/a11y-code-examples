@@ -1,36 +1,17 @@
-<header>
+<main>
   <h1>Autocomplete suggestions</h1>
   <search>
     <form>
       <div class="search-container">
-        <svg
-          fill="#000000"
-          width="800px"
-          height="800px"
-          viewBox="-2 0 19 19"
-          xmlns="http://www.w3.org/2000/svg"
-          class="cf-icon-svg"
-          aria-hidden="true"
-        >
+        <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg"
+          class="cf-icon-svg" aria-hidden="true">
           <path
-            d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"
-          />
+            d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z" />
         </svg>
-        <label id="search-label" for="search-input" class="sr-only"
-          >Search countries</label
-        >
-        <input
-          id="search-input"
-          type="search"
-          role="combobox"
-          aria-autocomplete="list"
-          aria-controls="autocomplete-list"
-          aria-haspopup="listbox"
-          aria-expanded="false"
-          aria-activedescendant=""
-          autocomplete="off"
-          placeholder="Search countries"
-        />
+        <label id="search-label" for="search-input" class="sr-only">Search countries</label>
+        <input id="search-input" type="search" role="combobox" aria-autocomplete="list"
+          aria-controls="autocomplete-list" aria-haspopup="listbox" aria-expanded="false" aria-activedescendant=""
+          autocomplete="off" placeholder="Search countries" />
         <button id="confirm-search" class="confirm-search" aria-label="Search">
           Search
         </button>
@@ -40,176 +21,9 @@
       </div>
     </form>
     <div class="autocomplete-container">
-      <div
-        id="autocomplete-list"
-        role="listbox"
-        class="autocomplete-list hidden"
-        aria-labelledby="search-label"
-        tabindex="0"
-      ></div>
+      <div id="autocomplete-list" role="listbox" class="autocomplete-list hidden" aria-labelledby="search-label"
+        tabindex="0"></div>
     </div>
   </search>
-</header>
-<main>
-  <aside>
-    <h2>Instructions</h2>
-
-    <p>
-      The autocomplete suggestions component works much like a native
-      <code>&lt;select&gt;</code> element, so this example is based on our
-      <a href="https://codepen.io/theo-avensia/pen/XJXpypY"
-        >best-practice approach for building a custom select.</a
-      >
-    </p>
-
-    <h3>Search Input</h3>
-
-    <p>
-      The search form should be wrapped within the
-      <code>&lt;search&gt;</code> element or use the
-      <code>role="search"</code> attribute. The
-      <code>&lt;input&gt;</code> element should use <code>type="search"</code>.
-      In addition to this, a couple of extra attributes should be considered:
-    </p>
-
-    <ul>
-      <li>
-        <code>role="combobox"</code>: Combines an input field with a popup
-        providing possible values for that input field.
-      </li>
-      <li>
-        <code>aria-activedescendant</code>: An ID pointing to the currently
-        active suggestion (if the user has an active selection). This also
-        allows the user select an list item without losing focus on the input
-        field.
-      </li>
-      <li>
-        <code>aria-autocomplete="list"</code>: Indicates that inputting text
-        could trigger predictions or suggestions. If the suggestion also appears
-        after the caret in the input, use <code>aria-autocomplete="both"</code>.
-      </li>
-      <li>
-        <code>aria-expanded</code>: Set to <code>true</code> or
-        <code>false</code> depending on whether the suggestion popover is
-        visible.
-      </li>
-      <li>
-        <code>aria-controls</code>: An ID pointing to the listbox of search
-        suggestions. (Note: This element should always exist in the DOM, even if
-        it is hidden initially).
-      </li>
-      <li>
-        <code>autocomplete="off"</code>: Turns off automated assistance in
-        filling out form field values.
-      </li>
-      <li>
-        <code>aria-haspopup</code> is not required becuase the element with the
-        role combobox have an implicit <code>aria-haspopup</code> value of
-        <code>listbox</code>.
-      </li>
-      <li>
-        Add a visually hidden <code>&lt;label&gt;</code> for the search input.
-        The magnifying glass icon and the placeholder text “Search…” are enough
-        as the visible label for sighted users, but the hidden label ensures
-        screen readers announce it properly.
-      </li>
-      <li>
-        Add <code>aria-hidden="true"</code> to the <code>&lt;svg&gt;</code> that
-        represents the magnifying-glass icon so screen readers ignore it and
-        don't announce it.
-      </li>
-    </ul>
-
-    <h3>Suggestions</h3>
-
-    <p>Suggestions should have the following attributes:</p>
-
-    <h4>The suggestion container</h4>
-    <ul>
-      <li>
-        <code>role="listbox"</code>: Indicates a list of selectable options.
-      </li>
-
-      <li>
-        <code>tabindex="0"</code>: Allows users of mobile assistive technologies
-        to reach the options using swipe gestures.
-      </li>
-      <li>
-        The listbox needs a label. This example uses
-        <code>aria-labelledby="search-label"</code>, which works because the
-        search label is short and clear. If the search input label is long or
-        not suitable as a listbox label (for example, “Hi, what are you looking
-        for today?”), do not reference it. Use <code>aria-label</code> on the
-        listbox instead.
-      </li>
-    </ul>
-
-    <h4>For each options</h4>
-    <ul>
-      <li>
-        <code>role="option"</code>: Announces the list item as an option to
-        screen readers.
-      </li>
-      <li>
-        <code>tabindex="0"</code>: Allows users of mobile assistive technologies
-        to reach the options using swipe gestures.
-      </li>
-    </ul>
-
-    <h3>Navigation</h3>
-
-    <ul>
-      <li>
-        <strong>Enter the proposals:</strong> Down arrow (from input to first
-        suggestion)
-      </li>
-      <li>
-        <strong>Navigate between proposals:</strong> Up and down arrows (no Tab)
-      </li>
-      <li>
-        <strong>Exit proposals:</strong> Up arrow (from first item back to
-        input)
-      </li>
-      <li>
-        <strong>Select a proposal:</strong> Use <kbd>Space</kbd>,
-        <kbd>Enter</kbd>, <kbd>Tab</kbd> or <kbd>Esc</kbd>
-      </li>
-      <li><strong>After selection:</strong> Keep the focus on the input</li>
-      <li><strong>Esc or Tab key:</strong> Closes the listbox</li>
-      <li>
-        <strong>No item selected:</strong> Focus returns to input without
-        clearing value
-      </li>
-      <li>
-        <strong>Left/Right arrows:</strong> Move the caret within the input
-        without closing the listbox
-      </li>
-    </ul>
-
-    <h3>Announcements</h3>
-    <p>
-      We use a short 500 ms delay before updating live regions so the user can
-      finish typing before new options are announced.
-    </p>
-
-    <h2>Testing with mobile screen readers</h2>
-    <p>
-      When testing with TalkBack (Android) and VoiceOver (Apple), we found that
-      the suggestions do not close when focus leaves the input. This happens
-      because mobile screen readers handle focus differently than typical web
-      focus, and they do not tell us when the input loses focus.
-    </p>
-    <p>
-      To fix this, we added a hidden button that lets users close the
-      suggestions. This issue only exists because we show suggestions even when
-      the search input is empty, which we do to match how search suggestions are
-      usually built in our customer projects.
-    </p>
-  </aside>
+  <div aria-live="polite" aria-atomic="true" id="search-status" class="search-status sr-only"></div>
 </main>
-<div
-  aria-live="polite"
-  aria-atomic="true"
-  id="search-status"
-  class="search-status sr-only"
-></div>

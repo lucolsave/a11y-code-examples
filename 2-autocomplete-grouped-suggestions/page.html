@@ -1,36 +1,17 @@
-<header>
+<main>
   <h1>Autocomplete with grouped suggestions</h1>
   <search>
     <form>
       <div class="search-container">
-         <svg
-          fill="#000000"
-          width="800px"
-          height="800px"
-          viewBox="-2 0 19 19"
-          xmlns="http://www.w3.org/2000/svg"
-          class="cf-icon-svg"
-          aria-hidden="true"
-        >
+        <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg"
+          class="cf-icon-svg" aria-hidden="true">
           <path
-            d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z"
-          />
+            d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z" />
         </svg>
-        <label id="search-label" for="search-input" class="sr-only"
-          >Search countries or cities</label
-        >
-        <input
-          aria-expanded="false"
-          aria-controls="autocomplete-list"
-          aria-autocomplete="list"
-          aria-activedescendant=""
-          autocomplete="off"
-          name="input-autocomplete"
-          placeholder="Search countries or cities"
-          type="text"
-          role="combobox"
-          id="search-input"
-        />
+        <label id="search-label" for="search-input" class="sr-only">Search countries or cities</label>
+        <input aria-expanded="false" aria-controls="autocomplete-list" aria-autocomplete="list" aria-activedescendant=""
+          autocomplete="off" name="input-autocomplete" placeholder="Search countries or cities" type="text"
+          role="combobox" id="search-input" />
         <button id="confirm-search" class="confirm-search" aria-label="Search">
           Search
         </button>
@@ -40,63 +21,9 @@
       </div>
     </form>
     <div id="autocomplete-container" class="autocomplete-container">
-      <div
-        id="autocomplete-list"
-        class="autocomplete-list hidden"
-        role="listbox"
-        aria-labelledby="search-label"
-        tabindex="0"
-      ></div>
+      <div id="autocomplete-list" class="autocomplete-list hidden" role="listbox" aria-labelledby="search-label"
+        tabindex="0"></div>
     </div>
   </search>
-</header>
-<main>
-  <aside>
-   <h2>Instructions</h2>
-  <p>This example shows an <strong>autocomplete list with grouped suggestions.</strong> </p>
-
-  <h3>Key Implementation Notes</h3>
-  <p>This example is based on the <a href="https://codepen.io/lucolsave/pen/vENNmMG">a11y autocomplete suggestions</a> Codepen example. Check it out for more specific information on the aria-attributes used in this example. This is what's uniqe to grouped lists:</p>
-  <p>Creating accessible groupings was a bit tricky tbh. 
-    The example borrows heavily from <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/" target="_blank" rel="noopener">WAI-ARIA Grouped Listbox pattern</a>, with a few changes. <br/>
-    Here's what worked:</p>
-  <ul>
-    <li>Use a separate <code>&lt;div&gt;</code> for each group with <code>role="group"</code>.</li>
-    <li>
-      <strong>Focus handling:</strong>
-      <ul>
-        <li>NVDA announces groups only if focus is:
-          <ul>
-            <li>on the element with <code>role="listbox"</code> (<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/">per APG</a>), or</li>
-            <li>the <code>input</code> uses <code>aria-activedescendant</code> instead of the listbox (our approach).</li>
-          </ul>
-        </li>
-        <li>We chose the input-based approach to let users keep typing.</li>
-      </ul>
-    </li>
-    <li>Group heading <code>&lt;div&gt;</code> elements must have <code>aria-hidden="true"</code> for NVDA to announce the group names.</li>
-    <li>Group headings should not have the <code>role="option"</code>attribute.</li>
-    <li>Group announcements aren't supported on touch devices (iOS, Android), but overall accessibility is good.</li>
-  </ul>
-
-  <p>This is what's announced by NVDA as the suggestions appears and the users moves between groups:
-  <pre aria-label="Screen reader example output">
-3 options available.
-expanded
-list
-Countries grouping
-Spain 1 of 1
-Cities grouping
-Stockholm 1 of 2
-Sydney 2 of 2
-  </pre>
-</p>
-
-  <aside>
+  <div aria-live="polite" aria-atomic="true" id="search-status" class="search-status sr-only"></div>
 </main>
-    <div
-      aria-live="polite"
-      aria-atomic="true"
-      id="search-status"
-      class="search-status sr-only"
-    ></div>
