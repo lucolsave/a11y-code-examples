@@ -36,6 +36,19 @@ const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const results = document.getElementById("results") as HTMLDivElement;
 const liveRegion = document.getElementById("live-region") as HTMLDivElement;
 let lastSearchedQuery = "";
+const defaultSearchText = "Search cute animals";
+
+function updateOpenButtonQuery(query: string) {
+  const nextQuery = query.trim();
+  const buttonText = nextQuery || defaultSearchText;
+  openBtnText.textContent = buttonText;
+  openBtn.setAttribute("aria-label", `Search, ${buttonText}`);
+}
+
+function persistSearchDraft() {
+  lastSearchedQuery = searchInput.value.trim();
+  updateOpenButtonQuery(lastSearchedQuery);
+}
 
 // Open dialog
 openBtn.addEventListener("click", () => {
@@ -51,8 +64,15 @@ openBtn.addEventListener("click", () => {
   }, 0);
 });
 
-// Prevent Enter from closing the dialog when focus is on the input or Search button
+// Close on first ESC (prevent input clear); persist draft so button shows current value
 searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    e.preventDefault();
+    persistSearchDraft();
+    dialog.close();
+    openBtn.focus();
+    return;
+  }
   if (e.key === "Enter" && !searchInput.value) e.preventDefault();
 });
 
@@ -66,16 +86,15 @@ confirmSearchBtn.addEventListener("keydown", (e) => {
 confirmSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const query = searchInput.value.trim().toLowerCase();
+  const query = searchInput.value.trim();
   if (query === "") {
     setTimeout(() => searchInput.focus(), 0);
     return;
   }
 
   // Set query on trigger button
-  openBtnText.textContent = query;
-  openBtn.setAttribute("aria-label", `Search, ${query}`);
   lastSearchedQuery = query;
+  updateOpenButtonQuery(lastSearchedQuery);
 
   // Close modal and update external results
   dialog.close();
@@ -86,6 +105,7 @@ confirmSearchBtn.addEventListener("click", (e) => {
 // Close dialog via button
 closeBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  persistSearchDraft();
 
   dialog.close();
   openBtn.focus();
@@ -103,8 +123,13 @@ dialog.addEventListener("click", (e) => {
     e.clientY <= rect.bottom;
 
   if (!isInDialog) {
+    persistSearchDraft();
     dialog.close();
   }
+});
+
+dialog.addEventListener("cancel", () => {
+  persistSearchDraft();
 });
 
 function renderResults(
@@ -190,7 +215,10 @@ function showSuggestions() {
 }
 
 searchInput.addEventListener("focus", showSuggestions);
-searchInput.addEventListener("input", showSuggestions);
+searchInput.addEventListener("input", () => {
+  persistSearchDraft();
+  showSuggestions();
+});
 
 const updateLiveRegion = debounce((count: number) => {
   let text =
