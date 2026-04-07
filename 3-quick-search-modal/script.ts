@@ -113,7 +113,7 @@ confirmSearchBtn.addEventListener("click", (e) => {
 // Close dialog via button
 closeBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  discardDraftAndRestoreButton();
+  persistSearchDraft();
 
   dialog.close();
   openBtn.focus();
