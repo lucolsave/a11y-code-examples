@@ -45,6 +45,12 @@ function updateOpenButtonQuery(query: string) {
   openBtn.setAttribute("aria-label", `Search, ${buttonText}`);
 }
 
+function discardDraftAndRestoreButton() {
+  updateOpenButtonQuery("");
+  lastSearchedQuery = "";
+  searchInput.value = "";
+}
+
 function persistSearchDraft() {
   lastSearchedQuery = searchInput.value.trim();
   updateOpenButtonQuery(lastSearchedQuery);
@@ -68,7 +74,7 @@ openBtn.addEventListener("click", () => {
 searchInput.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     e.preventDefault();
-    persistSearchDraft();
+    discardDraftAndRestoreButton();
     dialog.close();
     openBtn.focus();
     return;
@@ -99,13 +105,15 @@ confirmSearchBtn.addEventListener("click", (e) => {
   // Close modal and update external results
   dialog.close();
 
-  alert(`A search is performed here. Remember to manage the focus accordingly.`);
+  alert(
+    `A search is performed here. Remember to manage the focus accordingly.`,
+  );
 });
 
 // Close dialog via button
 closeBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  persistSearchDraft();
+  discardDraftAndRestoreButton();
 
   dialog.close();
   openBtn.focus();
@@ -129,7 +137,7 @@ dialog.addEventListener("click", (e) => {
 });
 
 dialog.addEventListener("cancel", () => {
-  persistSearchDraft();
+  discardDraftAndRestoreButton();
 });
 
 function renderResults(
