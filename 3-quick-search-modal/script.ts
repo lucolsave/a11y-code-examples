@@ -121,16 +121,8 @@ closeBtn.addEventListener("click", (e) => {
 });
 
 dialog.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const rect = dialog.getBoundingClientRect();
-  const isInDialog =
-    e.clientX >= rect.left &&
-    e.clientX <= rect.right &&
-    e.clientY >= rect.top &&
-    e.clientY <= rect.bottom;
-
-  if (!isInDialog) {
+  if (e.target === dialog) {
+    e.preventDefault();
     persistSearchDraft();
     dialog.close();
   }
