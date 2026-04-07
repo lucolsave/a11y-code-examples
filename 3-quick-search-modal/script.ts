@@ -121,6 +121,9 @@ closeBtn.addEventListener("click", (e) => {
 });
 
 dialog.addEventListener("click", (e) => {
+  // Close when the user clicks outside the dialog panel (the dimmed backdrop). For
+  // modal <dialog>, those clicks use the <dialog> node as event.target; clicks on
+  // content inside use a descendant as target, so we do not close.
   if (e.target === dialog) {
     e.preventDefault();
     persistSearchDraft();
