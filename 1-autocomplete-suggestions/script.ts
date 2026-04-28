@@ -1,8 +1,12 @@
+const searchBar = document.getElementById("search-bar") as HTMLElement;
 const input = document.getElementById("search-input") as HTMLInputElement;
 const listbox = document.getElementById("autocomplete-list") as HTMLDivElement;
 const statusRegion = document.getElementById("search-status") as HTMLDivElement;
 const confirmSearchBtn = document.getElementById(
   "confirm-search",
+) as HTMLButtonElement;
+const clearSearchBtn = document.getElementById(
+  "clear-search",
 ) as HTMLButtonElement;
 /*
   A visually hidden button that's only accessible while suggestions are shown.
@@ -42,6 +46,10 @@ const countries = [
 let currentIndex: number = -1;
 let originalQuery: string = "";
 
+function updateClearButtonVisibility() {
+  clearSearchBtn.hidden = input.value.length === 0;
+}
+
 function showOptions() {
   const query = input.value.toLowerCase();
   const matches =
@@ -63,6 +71,8 @@ function showOptions() {
     closeListbox();
     updateLiveRegion(0);
   }
+
+  updateClearButtonVisibility();
 }
 
 input.addEventListener("focus", () => {
@@ -182,6 +192,13 @@ confirmSearchBtn.addEventListener("click", (e) => {
   submitSearch();
 });
 
+clearSearchBtn.addEventListener("click", () => {
+  input.value = "";
+  updateClearButtonVisibility();
+  showOptions();
+  input.focus();
+});
+
 closeSuggestionsBtn.addEventListener("click", (e) => {
   e.preventDefault();
   closeListbox();
@@ -208,7 +225,7 @@ const updateLiveRegion = debounce((count: number) => {
 
 document.addEventListener("click", (e) => {
   if (
-    !input.contains(e.target as Node) &&
+    !searchBar.contains(e.target as Node) &&
     !listbox.contains(e.target as Node)
   ) {
     closeListbox();

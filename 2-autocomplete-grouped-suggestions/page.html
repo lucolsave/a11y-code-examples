@@ -2,16 +2,27 @@
   <h1>Autocomplete with grouped suggestions</h1>
   <search>
     <form>
-      <div class="search-container">
-        <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg"
-          class="cf-icon-svg" aria-hidden="true">
-          <path
-            d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z" />
-        </svg>
-        <label for="search-input" class="sr-only">Search countries or cities</label>
-        <input type="search" aria-expanded="false" aria-controls="autocomplete-list" aria-autocomplete="list" aria-activedescendant=""
-          autocomplete="off" name="input-autocomplete" placeholder="Search countries or cities" 
-          role="combobox" id="search-input" />
+      <div id="search-bar" class="search-container">
+        <div class="search-input-wrap">
+          <svg fill="#000000" width="800px" height="800px" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg"
+            class="cf-icon-svg" aria-hidden="true">
+            <path
+              d="M14.147 15.488a1.112 1.112 0 0 1-1.567 0l-3.395-3.395a5.575 5.575 0 1 1 1.568-1.568l3.394 3.395a1.112 1.112 0 0 1 0 1.568zm-6.361-3.903a4.488 4.488 0 1 0-1.681.327 4.443 4.443 0 0 0 1.68-.327z" />
+          </svg>
+          <label for="search-input" class="sr-only">Search countries or cities</label>
+          <input type="search" aria-expanded="false" aria-controls="autocomplete-list" aria-autocomplete="list" aria-activedescendant=""
+            autocomplete="off" name="input-autocomplete" placeholder="Search countries or cities" 
+            role="combobox" id="search-input" />
+          <button
+            type="button"
+            id="clear-search"
+            class="clear-search-button"
+            aria-label="Clear search input"
+            hidden
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <button id="confirm-search" class="confirm-search" aria-label="Search">
           Search
         </button>
