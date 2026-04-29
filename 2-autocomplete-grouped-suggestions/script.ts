@@ -117,6 +117,7 @@ function showOptions() {
 
         option.addEventListener("click", () => {
           input.value = item.name;
+          updateClearButtonVisibility();
           closeListbox();
           input.focus();
         });
@@ -167,6 +168,7 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
       currentIndex = (currentIndex + 1) % options.length;
       updateActiveOption(options);
       input.value = options[currentIndex].textContent || input.value;
+      updateClearButtonVisibility();
       break;
     case "ArrowUp":
       e.preventDefault();
@@ -177,11 +179,13 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
       } else {
         input.value = options[currentIndex].textContent || input.value;
       }
+      updateClearButtonVisibility();
       break;
     case "Enter":
       if (currentIndex >= 0) {
         e.preventDefault();
         input.value = options[currentIndex].textContent || input.value;
+        updateClearButtonVisibility();
         closeListbox();
         submitSearch();
       }
@@ -197,6 +201,7 @@ input.addEventListener("keydown", (e: KeyboardEvent) => {
     case "Tab":
       if (currentIndex >= 0) {
         input.value = options[currentIndex].textContent || input.value;
+        updateClearButtonVisibility();
       }
       closeListbox();
       break;
