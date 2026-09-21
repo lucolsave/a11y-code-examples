@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+<main>
+  <h1>Rich radio cards</h1>
+  <form>
+    <fieldset>
+      <legend>Choose pot size</legend>
+      <label class="option" for="pot-size-20">
+        <input type="radio" id="pot-size-20" name="pot-size" value="20" aria-labelledby="size-20-title"
+          aria-describedby="size-20-desc" checked>
+        <span class="option-content">
+          <span id="size-20-title" class="option-title">Pot size: 20 cm</span>
+           <span id="size-20-desc" class="option-desc">
+            <span>Delivery height: 30<span aria-hidden="true">–</span><span class="sr-only"> to </span>40 cm</span>
+            <span><span class="sr-only">Location: </span>Backaplan</span>
+            <span><span class="sr-only">Available: </span>Online</span>
+            <span class="option-price"><span class="sr-only">Price: </span>89.50€</span>
+            <span><span class="sr-only">Inventory status: </span>In stock</span>
+          </span>
+        </span>
+      </label>
+      <label class="option" for="pot-size-26">
+        <input type="radio" id="pot-size-26" name="pot-size" value="26" aria-labelledby="size-26-title"
+          aria-describedby="size-26-desc">
+        <span class="option-content">
+          <span id="size-26-title" class="option-title">Pot size: 26 cm</span>
+          <span id="size-26-desc" class="option-desc">
+            <span>Delivery height: 90<span aria-hidden="true">–</span><span class="sr-only"> to </span>100 cm</span>
+            <span><span class="sr-only">Location: </span>Bäckebol</span>
+            <span><span class="sr-only">Available: </span>Online</span>
+            <span class="option-price sales-price"><span class="sr-only">Sales price: </span>49.90€
+              <s><span class="sr-only">Ordinary price: </span>99.00€</s>
+            </span>
+            <span><span class="sr-only">Inventory status: </span>In stock <span aria-hidden="true">·</span><span
+                class="sr-only">,</span> Low stock</span>
+          </span>
+        </span>
+      </label>
+      <label class="option" for="pot-size-30">
+        <input type="radio" id="pot-size-30" name="pot-size" value="30" aria-labelledby="size-30-title"
+          aria-describedby="size-30-desc">
+        <span class="option-content">
+          <span id="size-30-title" class="option-title">Pot size: 30 cm</span>
+           <span id="size-30-desc" class="option-desc">
+            <span>Delivery height: 100<span aria-hidden="true">–</span><span class="sr-only"> to </span>110 cm</span>
+            <span><span class="sr-only">Location: </span>Borås</span>
+            <span><span class="sr-only">Available: </span>In store only</span>
+            <span class="option-price"><span class="sr-only">Price: </span>39.00€</span>
+            <span><span class="sr-only">Inventory status: </span>In stock</span>
+          </span>
+        </span>
+      </label>
+    </fieldset>
+  </form>
+</main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
