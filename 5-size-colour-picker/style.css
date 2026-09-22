@@ -8,10 +8,11 @@ main {
   max-width: 30rem;
 }
 
-h2 {
+.variant-label {
   font-size: 1rem;
   font-weight: bold;
   margin: 0 0 0.75rem;
+  display: inline-block;
 }
 
 .colours {
@@ -72,7 +73,7 @@ h2 {
 
 .sizes button {
   min-width: 4.5rem;
-    min-height: 4.5rem;
+  min-height: 4.5rem;
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -82,7 +83,7 @@ h2 {
 }
 
 .sizes button[aria-pressed="true"] {
-   border: 2px solid black;
+  border: 2px solid black;
 }
 
 .sizes button[aria-disabled="true"] {

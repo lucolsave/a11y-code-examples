@@ -10,7 +10,7 @@ colourLinks.forEach((link) => {
 
     const colourName = link.textContent?.trim() ?? "";
     if (selectedColour) {
-      selectedColour.textContent = `Selected colour: ${colourName}`;
+      selectedColour.textContent = ` ${colourName}`;
     }
   });
 });
@@ -35,3 +35,4 @@ sizeButtons.forEach((button) => {
     button.setAttribute("aria-pressed", "true");
   });
 });
+  

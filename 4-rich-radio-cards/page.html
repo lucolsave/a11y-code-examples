@@ -13,47 +13,80 @@
     <fieldset>
       <legend>Choose pot size</legend>
       <label class="option" for="pot-size-20">
-        <input type="radio" id="pot-size-20" name="pot-size" value="20" aria-labelledby="size-20-title"
-          aria-describedby="size-20-desc" checked>
+        <input type="radio" id="pot-size-20" name="pot-size" value="20" aria-labelledby="size-20-title size-20-height"
+          aria-describedby="size-20-prices size-20-stock" checked>
         <span class="option-content">
-          <span id="size-20-title" class="option-title">Pot size: 20 cm</span>
-           <span id="size-20-desc" class="option-desc">
-            <span>Delivery height: 30<span aria-hidden="true">-</span><span class="sr-only"> to </span>40 cm</span>
-            <span>Backaplan</span>
-            <span>Online</span>
-            <span class="option-price">89.50€</span>
-            <span>In stock</span>
+          <span class="option-header">
+            <span class="option-info">
+              <span id="size-20-title" class="option-title">Pot size: 20 cm</span>
+              <span id="size-20-height" class="option-height">Delivery height: 30<span
+                  aria-hidden="true">-</span><span class="sr-only"> to </span>40 cm</span>
+            </span>
+            <span id="size-20-prices" class="option-prices">
+              <span class="option-price">89.50€</span>
+            </span>
+          </span>
+          <span id="size-20-stock" class="option-stock">
+            <span class="stock-row">
+              <span>Norrköping Ingelsta</span>
+              <span class="stock">In stock</span>
+            </span>
+            <span class="stock-row">
+              <span>Online</span>
+              <span class="stock">In stock</span>
+            </span>
           </span>
         </span>
       </label>
       <label class="option" for="pot-size-26">
-        <input type="radio" id="pot-size-26" name="pot-size" value="26" aria-labelledby="size-26-title"
-          aria-describedby="size-26-desc">
+        <input type="radio" id="pot-size-26" name="pot-size" value="26" aria-labelledby="size-26-title size-26-height"
+          aria-describedby="size-26-prices size-26-stock">
         <span class="option-content">
-          <span id="size-26-title" class="option-title">Pot size: 26 cm</span>
-          <span id="size-26-desc" class="option-desc">
-            <span>Delivery height: 90<span aria-hidden="true">-</span><span class="sr-only"> to </span>100 cm</span>
-            <span>Bäckebol</span>
-            <span>Online</span>
-            <span class="option-price sales-price"><span class="sr-only">Sales price: </span>49.90€
-              <s><span class="sr-only">Ordinary price: </span>99.00€</s>
+          <span class="option-header">
+            <span class="option-info">
+              <span id="size-26-title" class="option-title">Pot size: 26 cm</span>
+              <span id="size-26-height" class="option-height">Delivery height: 90<span
+                  aria-hidden="true">-</span><span class="sr-only"> to </span>100 cm</span>
             </span>
-            <span>In stock <span aria-hidden="true">·</span><span
-                class="sr-only">,</span> Low stock</span>
+            <span id="size-26-prices" class="option-prices">
+              <span class="option-price sales-price"><span class="sr-only">Sales price: </span>149.90€</span>
+              <s class="option-price-ordinary"><span class="sr-only">Ordinary price: </span>199.00€</s>
+            </span>
+          </span>
+          <span id="size-26-stock" class="option-stock">
+            <span class="stock-row">
+              <span>Norrköping Ingelsta</span>
+              <span class="stock">In stock</span>
+            </span>
+            <span class="stock-row">
+              <span>Online</span>
+              <span class="stock stock-low">Low stock</span>
+            </span>
           </span>
         </span>
       </label>
       <label class="option" for="pot-size-30">
-        <input type="radio" id="pot-size-30" name="pot-size" value="30" aria-labelledby="size-30-title"
-          aria-describedby="size-30-desc">
+        <input type="radio" id="pot-size-30" name="pot-size" value="30" aria-labelledby="size-30-title size-30-height"
+          aria-describedby="size-30-prices size-30-stock">
         <span class="option-content">
-          <span id="size-30-title" class="option-title">Pot size: 30 cm</span>
-           <span id="size-30-desc" class="option-desc">
-            <span>Delivery height: 100<span aria-hidden="true">-</span><span class="sr-only"> to </span>110 cm</span>
-            <span>Borås</span>
-            <span>In store only</span>
-            <span class="option-price">39.00€</span>
-            <span>In stock</span>
+          <span class="option-header">
+            <span class="option-info">
+              <span id="size-30-title" class="option-title">Pot size: 30 cm</span>
+              <span id="size-30-height" class="option-height">Delivery height: 100<span
+                  aria-hidden="true">-</span><span class="sr-only"> to </span>110 cm</span>
+            </span>
+            <span id="size-30-prices" class="option-prices">
+              <span class="option-price">399.00€</span>
+            </span>
+          </span>
+          <span id="size-30-stock" class="option-stock">
+            <span class="stock-row">
+              <span>Norrköping Ingelsta</span>
+              <span class="stock">In stock</span>
+            </span>
+            <span class="stock-row">
+              <span>In store only</span>
+            </span>
           </span>
         </span>
       </label>
@@ -64,3 +97,4 @@
     <script src="./script.js"></script>
   </body>
 </html>
+    

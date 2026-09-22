@@ -1,67 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pen</title>
   </head>
   <body>
-<main>
-  <h1>Size and colour picker</h1>
+    <main>
+      <h1>Size and colour picker</h1>
 
-  <h2 id="colour-label">Colour</h2>
-  <ol class="colours" aria-labelledby="colour-label">
-    <li>
-      <a href="#midnight-navy">
-        <span class="swatch swatch-navy" aria-hidden="true"></span>
-        Midnight Navy
-      </a>
-    </li>
-    <li>
-      <a href="#bone" aria-current="page">
-        <span class="swatch swatch-bone" aria-hidden="true"></span>
-        Bone
-      </a>
-    </li>
-    <li>
-      <a href="#ash-grey">
-        <span class="swatch swatch-grey" aria-hidden="true"></span>
-        Ash Grey
-      </a>
-    </li>
-    <li>
-      <a href="#saffron">
-        <span class="swatch swatch-saffron" aria-hidden="true"></span>
-        Saffron
-      </a>
-    </li>
-  </ol>
-  <p class="selected-colour" role="status">Selected colour: Bone</p>
-
-  <h2 id="size-label">Ear cushion size</h2>
-  <ol class="sizes" aria-labelledby="size-label">
-    <li>
-      <button type="button" aria-pressed="false">
-        <span aria-hidden="true">S</span>
-        <span class="sr-only">Small</span>
-      </button>
-    </li>
-    <li>
-      <button type="button" aria-pressed="true">
-        <span aria-hidden="true">M</span>
-        <span class="sr-only">Medium</span>
-      </button>
-    </li>
-    <li>
-      <button type="button" aria-pressed="false" aria-disabled="true">
-        <span aria-hidden="true">L</span>
-        <span class="sr-only">Large</span>
-        <span class="sold-out">Sold out</span>
-      </button>
-    </li>
-  </ol>
-</main>
+      <span class="variant-label" id="colour-label">Colour:</span
+      ><span class="selected-colour"> Bone</span>
+      <ol class="colours" aria-labelledby="colour-label">
+        <li>
+          <a href="#midnight-navy">
+            <span class="swatch swatch-navy" aria-hidden="true"></span>
+            Midnight Navy
+          </a>
+        </li>
+        <li>
+          <a href="#bone" aria-current="page">
+            <span class="swatch swatch-bone" aria-hidden="true"></span>
+            Bone
+          </a>
+        </li>
+        <li>
+          <a href="#ash-grey">
+            <span class="swatch swatch-grey" aria-hidden="true"></span>
+            Ash Grey
+          </a>
+        </li>
+        <li>
+          <a href="#saffron">
+            <span class="swatch swatch-saffron" aria-hidden="true"></span>
+            Saffron
+          </a>
+        </li>
+      </ol>
+      <span class="variant-label" id="size-label">Ear cushion size</span>
+      <ol class="sizes" aria-labelledby="size-label">
+        <li>
+          <button type="button" aria-pressed="false">
+            <span aria-hidden="true">S</span>
+            <span class="sr-only">Small</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" aria-pressed="true">
+            <span aria-hidden="true">M</span>
+            <span class="sr-only">Medium</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" aria-pressed="false" aria-disabled="true">
+            <span aria-hidden="true">L</span>
+            <span class="sr-only">Large</span>
+            <span class="sold-out">Sold out</span>
+          </button>
+        </li>
+      </ol>
+    </main>
 
     <script src="./script.js"></script>
   </body>
